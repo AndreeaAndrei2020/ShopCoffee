@@ -17,7 +17,7 @@ function Navbar() {
       <div className="line">
         <nav className="NavBarItems">
           <h1 className="navbar-logo">
-            <img className="imgLogo" src={restart} alt="imgLogo"/>
+            <img className="imgLogo" src={restart} alt="imgLogo" />
           </h1>
 
           <div className="menu-icon" onClick={handleClick}>
@@ -28,10 +28,10 @@ function Navbar() {
             {navbarItems.map((item, index) => {
               return (
                 <li key={index}>
-                  <Link to={item.url}>
-                    <p className={item.cName} href={item.url}>
+                  <Link to={item.url} className="linkNavbar">
+                    <a className={item.cName} href={item.url}>
                       {item.title}
-                    </p>
+                    </a>
                   </Link>
                 </li>
               );
@@ -39,7 +39,9 @@ function Navbar() {
           </ul>
           <Button> Sign up </Button>
         </nav>
-        <div className="centered">It's not just coffee, it's an experience!</div>
+        <div className="centered">
+          It's not just coffee, it's an experience!
+        </div>
       </div>
     </div>
   );

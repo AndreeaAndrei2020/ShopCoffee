@@ -1,5 +1,6 @@
 import React from "react";
 import "./Home.css";
+import { Link } from "react-router-dom";
 import { MenuItems } from "./MenuItems";
 
 function Home() {
@@ -9,6 +10,7 @@ function Home() {
         console.log(item.src);
         return (
           <div className="column" key={index}>
+             <Link to={item.link}>
             <img
               className="imageHome"
               src={item.src}
@@ -16,6 +18,7 @@ function Home() {
               alt="imageHome"
             />
             <div className="centered">{item.title}</div>
+           </Link>
           </div>
         );
       })}

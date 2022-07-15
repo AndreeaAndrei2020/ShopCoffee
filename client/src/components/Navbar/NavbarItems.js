@@ -5,7 +5,7 @@ export const navbarItems = [
     cName: "nav-links",
   },
   {
-    title: "Products",
+    title: "Shop",
     url: "/products",
     cName: "nav-links",
   },

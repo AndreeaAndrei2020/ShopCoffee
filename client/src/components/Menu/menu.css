@@ -1,0 +1,11 @@
+.centered1 {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size:20px;
+  }
+  .containerChooseMenu{
+    background-color: black;
+  }
