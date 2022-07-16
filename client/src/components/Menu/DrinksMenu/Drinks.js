@@ -9,7 +9,7 @@ function Drinks() {
 
   useEffect(() => {
     const fetchproducts = async () => {
-      const { data } = await axios.get(`${API_URL}/api/menu/drinks`);
+      const { data } = await axios.get(`${API_URL}/api/drinks`);
       console.log("Data",data)
       setDrinksCoffee(data["drinksCoffee"]);
       setDrinksCocktails(data["DrinksCocktails"]);
@@ -26,10 +26,10 @@ function Drinks() {
           return (
             <div className="pro">
               <div className="titleDrink">
-                <p>{drink.title}</p>
+                <p>{drink.name}</p>
               </div>
               <div className="containerPhoto">
-                <img src={`${API_URL}${drink.src}`} alt={drink.title} />
+                <img src={`${API_URL}${drink.image}`} alt={drink.name} />
               </div>
             </div>
           );

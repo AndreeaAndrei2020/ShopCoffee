@@ -10,7 +10,6 @@
     width: 23%;
     min-width: 250px;
     padding: 10px 12px ;
-    border: 1px solid black;
     margin: 15px ;
     position: relative;
   
@@ -45,13 +44,3 @@
     transition: 1.4s;
   
 }
-/* .containerPhoto img{
-    position: relative;
-    display: block;
-}
-.containerPhoto{ transition: 2s;
-   
-    z-index: 2;
-
-/* } 
-*/

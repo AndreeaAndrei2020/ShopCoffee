@@ -1,64 +1,29 @@
-// const express = require("express");
-// const cors = require("cors");
+const express = require("express");
+const app = express();
+const cors = require("cors");
+require("dotenv").config(); // loads environment variables from a . env file into process. env .
 
-// const app = express();
-
-// const products = require("./data/Products.js");
-
-
-// require("dotenv").config();
-
-// const dotenv = require("dotenv");
-// // const connectDatabase = require("./config/MongoDB.js");
-// // connectDatabase()
-
-// const REACT_APP_MONGO_URL = process.env.REACT_APP_MONGO_URL;
-
-// const mongoose = require("mongoose");
-
-
-
-
-// async function connect() {
-//   try {
-//     await mongoose.connect(REACT_APP_MONGO_URL);
-//     console.log("connect");
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-// connect();
-
-
-// console.log(process.env.REACT_APP_MONGO_URL)
-
-// connectDatabase();
-// app.use(cors());
-// app.use(express.static("public"));
-
-const express = require('express');
-const cors = require('cors');
-// const mongoose = require("mongoose");  
-
-const products = require('./data/Products.js')
+const ImportData = require('./DataImport')
+const products = require("./data/Products.js");
 const drinksCoffee = require("./data/DrinksCoffee.js");
 const DrinksCocktails = require("./data/DrinksCocktails.js");
-const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
-const app =  express();
+const mangoDB = require('./config/MongoDB.js');
+
+
+mangoDB();
 
 app.use(cors())
 app.use(express.static('public'))
 
+//API
+// console.log(1111,ImportData)
+// app.use("/api", ImportData)
 
 
-app.get("/api/products", (req, res) => {
-  res.json(products);
-});
-
-app.get("/api/menu/drinks", (req, res) => {
+app.get("/api/drinks", (req, res) => {
   res.json({
     drinksCoffee: drinksCoffee,
-    DrinksCocktails: DrinksCocktails
+    DrinksCocktails: DrinksCocktails,
   });
 });
 

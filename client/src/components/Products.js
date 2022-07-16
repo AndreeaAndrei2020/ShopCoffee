@@ -3,6 +3,7 @@ import axios from "axios";
 import clatite from "./photos/clatite.jpg";
 import { Link } from "react-router-dom";
 
+
 const API_URL = process.env.REACT_APP_API_URL;
 // console.log(1111, process.env);
 

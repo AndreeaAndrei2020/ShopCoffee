@@ -1,8 +1,8 @@
 const drinksCoffee = [
-  { id: 1, title: "Lattee",src:'/images/drinks/coffee/Lattee.jpg' },
-  { id: 2, title: "Espresso" ,src:'/images/drinks/coffee/espresso.jpg' },
-  { id: 4, title: "Macchiato" ,src:'/images/drinks/coffee/macchiato.jpg' },
-  { id: 5, title: "IceCoffee" ,src:'/images/drinks/coffee/iceCoffee.jpg' }
+  {name: "Lattee",image:'/images/drinks/coffee/Lattee.jpg' ,description:"",price : 18},
+  {name: "Espresso" ,image:'/images/drinks/coffee/espresso.jpg' ,description:"", price: 12},
+  {name: "Macchiato" ,image:'/images/drinks/coffee/macchiato.jpg' ,description:"",price: 15},
+  {name: "IceCoffee" ,image:'/images/drinks/coffee/iceCoffee.jpg',description:"" ,price: 19}
 ];
 
 module.exports = drinksCoffee;
