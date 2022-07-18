@@ -22,7 +22,7 @@ function App() {
           <Route path="/products/:id" element={<Product />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/menu" element={<Menu />} />
-          <Route path="/drinksMenu" element={<Drinks />} />
+          <Route path="/drinks" element={<Drinks />} />
           <Route path="/foodMenu" element={<FoodMenu />} />
         </Routes>
         <Footer />

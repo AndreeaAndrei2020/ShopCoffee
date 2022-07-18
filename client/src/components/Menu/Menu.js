@@ -15,7 +15,7 @@ function Menu() {
           </Link>
         </div>
         <div className="column">
-          <Link to="/drinksMenu">
+          <Link to="/drinks">
             <img className="imageHome" src={drinks} alt="imageHome" />
             <div className="centered1"> Drinks</div>
           </Link>

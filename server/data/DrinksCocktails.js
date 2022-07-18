@@ -1,52 +1,66 @@
 const DrinksCocktails = [
- 
   {
-    id: 1,
-    title: "The Lady`s Rose",
-    src: "/images/drinks/cocktails/theLadyRose.jpg",
-  },
-
-  { id: 2, title: "Pink Glass", src: "/images/drinks/cocktails/pinkGlass.jpg" },
-  {
-    id: 3,
-    title: "Shine",
-    src: "/images/drinks/cocktails/2.jpg",
-  },
-  {
-    id: 6,
-    title: "Old Fashioned",
-    src: "/images/drinks/cocktails/3.jpg",
-  },
-  {
-    id: 6,
-    title: "The Pink Drop",
-    src: "/images/drinks/cocktails/4.jpg",
-  },
-  {
-    id: 6,
-    title: "Classy Gessy",
-    src: "/images/drinks/cocktails/5.jpg",
-  },
-  {
-    id: 6,
-    title: "Aperol",
-    src: "/images/drinks/cocktails/6.jpg",
-  },
-  {
-    id: 6,
-    title: "Vodka Dance",
-    src: "/images/drinks/cocktails/8.jpg",
+    name: "The Lady`s Rose",
+    image: "/images/drinks/cocktails/theLadyRose.jpg",
+    description: "",
+    price: "18",
   },
 
   {
-    id: 6,
-    title: "Daiquiri",
-    src: "/images/drinks/cocktails/10.jpg",
+    name: "Pink Glass",
+    image: "/images/drinks/cocktails/pinkGlass.jpg",
+    description: "",
+    price: "18",
+  },
+
+  {
+    name: "Shine",
+    image: "/images/drinks/cocktails/2.jpg",
+    description: "",
+    price: "18",
   },
   {
-    id: 6,
-    title: "Blue Vodka",
-    src: "/images/drinks/cocktails/11.jpg",
+    name: "Old Fashioned",
+    image: "/images/drinks/cocktails/3.jpg",
+    description: "",
+    price: "18",
+  },
+  {
+    name: "The Pink Drop",
+    image: "/images/drinks/cocktails/4.jpg",
+    description: "",
+    price: "18",
+  },
+  {
+    name: "Classy Gessy",
+    image: "/images/drinks/cocktails/5.jpg",
+    description: "",
+    price: "18",
+  },
+  {
+    name: "Aperol",
+    image: "/images/drinks/cocktails/6.jpg",
+    description: "",
+    price: "18",
+  },
+  {
+    name: "Vodka Dance",
+    image: "/images/drinks/cocktails/8.jpg",
+    description: "",
+    price: "18",
+  },
+
+  {
+    name: "Daiquiri",
+    image: "/images/drinks/cocktails/10.jpg",
+    description: "",
+    price: "18",
+  },
+  {
+    name: "Blue Vodka",
+    image: "/images/drinks/cocktails/11.jpg",
+    description: "",
+    price: "18",
   },
 ];
 

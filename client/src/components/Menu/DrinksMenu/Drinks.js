@@ -10,10 +10,9 @@ function Drinks() {
   useEffect(() => {
     const fetchproducts = async () => {
       const { data } = await axios.get(`${API_URL}/api/drinks`);
-      console.log("Data",data)
-      setDrinksCoffee(data["drinksCoffee"]);
-      setDrinksCocktails(data["DrinksCocktails"]);
-    
+      console.log(data)
+      setDrinksCoffee(data['drinksCoffee']);
+      // setDrinksCocktails(data["DrinksCocktails"]);
     };
     fetchproducts();
   }, []);
@@ -22,9 +21,9 @@ function Drinks() {
     <div>
       <h2 className="h2Menu">Coffee Menu : 07:00 - 20:00</h2>
       <div className="pro-container">
-        {drinksCoffee.map((drink) => {
+        {drinksCoffee.map((drink,index) => {
           return (
-            <div className="pro">
+            <div className="pro" key={index}>
               <div className="titleDrink">
                 <p>{drink.name}</p>
               </div>
@@ -38,7 +37,7 @@ function Drinks() {
 
       <h2 className="h2Menu">Alcoholic Drinks Menu : 20:00 - 24:00</h2>
       <div className="pro-container">
-        {drinksCocktails.map((drink) => {
+        {/* { drinksCocktails.map((drink) => {
           return (
             <div className="pro">
               <div className="titleDrink">
@@ -47,7 +46,7 @@ function Drinks() {
               <img src={`${API_URL}${drink.src}`} alt={drink.title} />
             </div>
           );
-        })}
+        })} */}
       </div>
     </div>
   );
