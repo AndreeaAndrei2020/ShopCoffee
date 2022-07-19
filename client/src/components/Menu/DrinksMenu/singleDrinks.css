@@ -1,0 +1,107 @@
+.small-container {
+  max-width: 1000px;
+  margin: auto;
+  padding-left: 25px;
+  padding-right: 20px;
+  color: white;
+  background-color: black;
+}
+.Product{
+    background-color: black;
+}
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.small-img-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.col2 img {
+  max-width: 100%;
+  padding: 50px 0;
+}
+.small-img-col {
+  flex-basis: 24%;
+  cursor: pointer;
+}
+
+.single-product .col2 img {
+  padding: 0;
+}
+.single-product .col2 img {
+  padding: 20px;
+}
+.col2 {
+  flex-basis: 50%;
+  min-width: 300px;
+}
+.col2 h1 {
+  font-size: 50px;
+  margin: 20px 0;
+  line-height: 60px;
+}
+.col2 h4 {
+  font-size: 22px;
+  margin: 20px 0;
+}
+.col2 input {
+  width: 50px;
+  height: 40px;
+
+  font-size: 20px;
+  margin-right: 10px;
+  border: 1px solid black;
+}
+.col2 .btnAddCard {
+  height: 40px;
+  width: auto;
+
+  font-size: 20px;
+  margin-right: 10px;
+  border: 1px solid black;
+}
+
+.col2 input:focus {
+  outline: none;
+}
+.col2 input {
+  text-align: center;
+  margin: 2px;
+  border-radius: 15px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.btnAddCard {
+  display: inline !important;
+}
+.btnAddCard {
+  padding: 10px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color:rgb(168, 126, 70);
+  border: none !important;
+  border-radius: 15px;
+  box-shadow: 0 2px white;
+}
+
+.btnAddCard:hover {
+  background-color: rgb(167, 118, 54);
+}
+
+.btnAddCard:active {
+  background-color: rgb(167, 118, 54);
+  box-shadow: 0 5px white;
+  transform: translateY(2px);
+}
+.description {
+  margin-top: 20px;
+}

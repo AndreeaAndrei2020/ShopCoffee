@@ -37,7 +37,7 @@ function Navbar() {
               );
             })}
           </ul>
-          <Button> Sign up </Button>
+          <Button id="SingupBtn"> Sign up </Button>
         </nav>
         <div className="centered">
           It's not just coffee, it's an experience!

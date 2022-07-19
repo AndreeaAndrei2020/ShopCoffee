@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Products from "./components/Products";
 import Product from "./components/Product";
+import SingleDrink from "./components/Menu/DrinksMenu/SingleDrink";
 import Shop from "./components/Shop/Shop";
 import Menu from './components/Menu/Menu';
 import Drinks from './components/Menu/DrinksMenu/Drinks';
@@ -19,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/products/:id" element={<Product />} />
+          <Route path="/drinks/:id" element={<SingleDrink />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/drinks" element={<Drinks />} />

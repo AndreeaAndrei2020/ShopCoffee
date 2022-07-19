@@ -39,8 +39,21 @@
     top: 10%;
   
 }
+.titleDrink p {
+            padding: 5px;
+}
 .pro:hover {
     transform: scale(1.1);
     transition: 1.4s;
   
+}
+h2{
+    color: white;
+    position: relative;
+    margin: auto;
+    text-align: center;
+  
+}
+.divH2{
+    width: 100%;
 }

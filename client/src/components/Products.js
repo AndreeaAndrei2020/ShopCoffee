@@ -32,7 +32,7 @@ function Products() {
               />
               <div>
                 <p>
-                  <Link to={`/products/${product.id}`}>{product.title} </Link>
+                  <Link to={`/products/${product.id}`}>{product.name} </Link>
                 </p>
               </div>
             </div>
