@@ -2,32 +2,32 @@ const DrinksCocktails = [
   {
     name: "The Lady`s Rose",
     image: "/images/drinks/cocktails/theLadyRose.jpg",
-    description: "",
+    description: "Rosé Champagnes",
     price: "30",
   },
 
   {
     name: "Pink Glass",
     image: "/images/drinks/cocktails/pinkGlass.jpg",
-    description: "",
+    description: "Gin Coktail",
     price: "32",
   },
   {
     name: "Shine",
     image: "/images/drinks/cocktails/2.jpg",
-    description: "",
+    description: "Orange Whiskey",
     price: "28",
   },
   {
-    name: "Old Fashioned",
+    name: "Mimosa",
     image: "/images/drinks/cocktails/3.jpg",
-    description: "",
+    description: "Orange Champagne",
     price: "22",
   },
   {
     name: "The Pink Drop",
     image: "/images/drinks/cocktails/4.jpg",
-    description: "",
+    description: "Campari Coktail",
     price: "27",
   },
   {
@@ -37,15 +37,15 @@ const DrinksCocktails = [
     price: "30",
   },
   {
-    name: "Aperol",
+    name: "Spritz",
     image: "/images/drinks/cocktails/6.jpg",
-    description: "",
+    description: "Aperol Spritz",
     price: "18",
   },
   {
     name: "Vodka Dance",
     image: "/images/drinks/cocktails/8.jpg",
-    description: "",
+    description: "Vodka with Sour Apple",
     price: "27",
   },
 
@@ -58,7 +58,7 @@ const DrinksCocktails = [
   {
     name: "Blue Vodka",
     image: "/images/drinks/cocktails/11.jpg",
-    description: "",
+    description: "Vodka with Blue Curacao",
     price: "28",
   },
 ];

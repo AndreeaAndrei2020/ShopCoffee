@@ -23,10 +23,10 @@ function Drinks() {
       <h2 className="h2Menu">Coffee Menu : 07:00 - 20:00</h2>
       <div className="pro-container">
         {drinksCoffee.map((drink, index) => {
-          if (index !== 4)
+          if (index < 4)
             return (
-              <div className="pro" key={index}>
-                <Link to={`/drinks/${drink.id}`}>
+              <div className="pro" key={drink._id}>
+                <Link to={`/drinks/${drink._id}`}>
                   <div className="titleDrink">
                     <h3>{drink.name}</h3>
                     <p>{drink.price} ron</p>
@@ -37,43 +37,29 @@ function Drinks() {
                 </Link>
               </div>
             );
-          else
-            return (
-              <>
-                <div className="divH2">
-                  <h2>Alcohol Drink Menu: 20:00 -24:00</h2>
-                </div>
-
-                <div className="pro" key={index}>
-                  <Link to={`/drinks/${drink.id}`}>
-                    <div className="titleDrink">
-                      <h3>{drink.name}</h3>
-                      <p>{drink.price} ron</p>
-                    </div>
-                    <div className="containerPhoto">
-                      <img src={`${API_URL}${drink.image}`} alt={drink.name} />
-                    </div>
-                  </Link>
-                </div>
-              </>
-            );
         })}
-      </div>
 
-      {/* <h2 className="h2Menu">Alcoholic Drinks Menu : 20:00 - 24:00</h2>
-      <div className="pro-container">
+        <div className="divH2">
+          <h2>Alcohol Drink Menu: 20:00 -24:00</h2>
+        </div>
+
         {drinksCoffee.map((drink, index) => {
           if (index > 3)
             return (
-              <div className="pro">
-                <div className="titleDrink">
-                  <p>{drink.name}</p>
-                </div>
-                <img src={`${API_URL}${drink.image}`} alt={drink.title} />
+              <div className="pro" key={drink._id}>
+                <Link to={`/drinks/${drink._id}`}>
+                  <div className="titleDrink">
+                    <h3>{drink.name}</h3>
+                    <p>{drink.price} ron</p>
+                  </div>
+                  <div className="containerPhoto">
+                    <img src={`${API_URL}${drink.image}`} alt={drink.name} />
+                  </div>
+                </Link>
               </div>
             );
         })}
-      </div> */}
+      </div>
     </div>
   );
 }

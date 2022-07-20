@@ -7,17 +7,17 @@ import "./menu.css";
 function Menu() {
   return (
     <div className="containerChooseMenu">
-      <div className="row">
-        <div className="column">
-          <Link to="/foodMenu">
+      <div className="divHomeMenuitems">
+        <div className="columnHomeMenuItems divMenu" >
+          <Link to="/food">
             <img className="imageHome" src={food} alt="imageHome" />
-            <div className="centered1">Food</div>
+            <div className="centeredTitle">Food</div>
           </Link>
         </div>
-        <div className="column">
+        <div className="columnHomeMenuItems divMenu">
           <Link to="/drinks">
             <img className="imageHome" src={drinks} alt="imageHome" />
-            <div className="centered1"> Drinks</div>
+            <div className="centeredTitle"> Drinks</div>
           </Link>
         </div>
       </div>
