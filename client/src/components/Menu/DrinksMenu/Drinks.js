@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 
 import axios from "axios";
 import "./drinks.css";
+import NavbarSecond from "../../Navbar/NavbarSecond";
 const API_URL = process.env.REACT_APP_API_URL;
 
-function Drinks() {
+function Drinks({math}) {
   const [drinksCoffee, setDrinksCoffee] = useState([]);
   // const [drinksCocktails, setDrinksCocktails] = useState([]);
-
-  useEffect(() => {
+console.log("math",math)
+  useEffect(() => {       //fetch data from server
     const fetchproducts = async () => {
       const { data } = await axios.get(`${API_URL}/api/drinks`);
       console.log("data client", data);
@@ -20,6 +21,8 @@ function Drinks() {
 
   return (
     <div>
+      <NavbarSecond/>
+
       <h2 className="h2Menu">Coffee Menu : 07:00 - 20:00</h2>
       <div className="pro-container">
         {drinksCoffee.map((drink, index) => {

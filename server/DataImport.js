@@ -1,22 +1,78 @@
 const express = require("express");
-const Product = require("./Models/ProductModel.js");
-const products = require("./data/DrinksCoffee.js");
-const cocktails = require("./data/DrinksCocktails.js")
 const asyncHandler = require("express-async-handler");
 
 const ImportData = express.Router();
 
-ImportData.post(
-  "/drinks",
-  asyncHandler(async (req, res) => {
-    await Product.remove({});
-    const importDrinksCoffee = await Product.insertMany(products);
-    const importDrinksCoktails = await Product.insertMany(cocktails);
 
-    res.send({ importDrinksCoffee , importDrinksCoktails});  ///aici trimit la mangoDB
+const schemaDrinks = require("./Models/ProductModel.js");
+const coffeeDrinks = require("./data/DrinksCoffee.js");
+const cocktailsDrinks = require("./data/DrinksCocktails.js");
+
+const food = require("./data/Sweets.js");
+const SchemaFood = require("./Models/foodModel.js");
+
+const User = require('./Models/UserModel.js');
+const users = require('./data/users.js');
+
+
+const schemaEquipments = require('./Models/EquipmentModel.js');
+const equipments = require('./data/Equipments.js');
+
+const BaristaCoursesSchema = require('./Models/BaristaCoursesModel.js');
+const baristaCourses = require('./data/BaristaCourses.js');
+
+ImportData.post(
+  "/user",
+  asyncHandler(async (req, res) => {
+    await User.remove({});
+    const importUser = await User.insertMany(users);
+    res.send({ importUser});  ///aici trimit la mangoDB
   })
 );
 
 
+
+ImportData.post(
+  "/drinks",
+  asyncHandler(async (req, res) => {
+    await schemaDrinks.remove({});
+    const importCoffeeDrinks = await schemaDrinks.insertMany(coffeeDrinks);
+    const importCoktailsDrinks = await schemaDrinks.insertMany(cocktailsDrinks);
+
+    res.send({ importCoffeeDrinks , importCoktailsDrinks});  ///aici trimit la mangoDB
+  })
+);
+
+ImportData.post(
+  "/equipment",
+  asyncHandler(async (req, res) => {
+    await schemaEquipments.remove({});
+    const importEquipments = await schemaEquipments.insertMany(equipments);
+
+    res.send({ importEquipments });  ///aici trimit la mangoDB
+  })
+);
+
+
+
+ImportData.post(
+  "/food",
+  asyncHandler(async (req, res) => {
+    await SchemaFood.remove({});
+    const importFood = await SchemaFood.insertMany(food);
+
+    res.send({ importFood });  ///aici trimit la mangoDB
+  })
+);
+
+ImportData.post(
+  "/baristaCourses",
+  asyncHandler(async (req, res) => {
+    await BaristaCoursesSchema.remove({});
+    const importFood = await BaristaCoursesSchema.insertMany(baristaCourses);
+
+    res.send({ importFood });  ///aici trimit la mangoDB
+  })
+);
 
 module.exports = ImportData;

@@ -2,12 +2,12 @@ export const MenuItems = [
   {
     title: "Home equipment",
     src: require('./photosHome/espressor2.jpg'),
-    link :"/menu"
+    link :"/equipment"
      },
   {   
     title: "Barista Course",
     src: require('./photosHome/baristaCourse.jpg'),
-    link :"/menu"
+    link :"/baristaCourses"
   },
   {
   

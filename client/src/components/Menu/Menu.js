@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import food from "../../images/food.jpg";
 import drinks from "../../images/drinks.jpg";
 import "./menu.css";
+import NavbarSecond from "../Navbar/NavbarSecond";
 
 function Menu() {
   return (
+    <div>
+      <NavbarSecond/>
     <div className="containerChooseMenu">
       <div className="divHomeMenuitems">
         <div className="columnHomeMenuItems divMenu" >
@@ -21,6 +24,7 @@ function Menu() {
           </Link>
         </div>
       </div>
+    </div>
     </div>
   );
 }

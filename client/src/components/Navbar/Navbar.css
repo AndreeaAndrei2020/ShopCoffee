@@ -110,7 +110,9 @@
   display: none !important;
 }
 
-
+.hrUnderTheNavbar{
+  border: 1px solid white;
+}
 
 
 @media screen and (max-width: 960px) {

@@ -1,0 +1,76 @@
+.h1HomeEquipment {
+  text-align: center;
+  color: white;
+}
+
+.h2Menu {
+  text-align: center;
+  color: white;
+  background-color: black;
+  padding-top: 2%;
+  padding-bottom: 1%;
+}
+
+.pro {
+  width: 23%;
+  min-width: 250px;
+  padding: 10px 12px;
+  margin: 15px;
+  position: relative;
+}
+.pro img {
+  width: 100%;
+  /* justify-content: center;
+    display: block;  */
+}
+.pro-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* ca sa nu puna pozele pe acelasi rand */
+  justify-content: center;
+  cursor: pointer;
+  /* z-index: 3; */
+  background-color: black;
+}
+
+.titleDrink {
+  position: absolute;
+  color: white;
+  text-align: center;
+  width: 100%;
+  font-size: 18px;
+  top: 10%;
+}
+.titleDrink p {
+  padding: 5px;
+}
+.pro:hover {
+  transform: scale(1.1);
+  transition: 1.4s;
+}
+h2 {
+  color: white;
+  position: relative;
+  margin: auto;
+  text-align: center;
+}
+.divH2 {
+  width: 100%;
+}
+.equipmentText {
+  color: black !important;
+text-align: center;
+}
+
+.equipmentContainer{
+    background-color: white;
+}
+.equipmentContainer{
+    margin: 30px;
+}
+.equipmentsComponent{
+    margin: 20px;
+}
+.equipmentsContainer{
+    margin: 20px;
+}

@@ -1,14 +1,16 @@
 const express = require("express");
+const productRoute = express.Router();
 const asyncHandler = require("express-async-handler");
+
+
 const ProductModel = require("../Models/ProductModel.js");
 
-const productRoute = express.Router();
 
 productRoute.get(
   "/",
   asyncHandler(async (req, res) => {
-    const products = await ProductModel.find({});
-    res.json({ drinksCoffee: products }); ///aici trimit la frontend
+    const drinks = await ProductModel.find({});
+    res.json({ drinksCoffee: drinks }); ///aici trimit la frontend
   })
 );
 
@@ -16,6 +18,7 @@ productRoute.get(
   "/:id",
   asyncHandler(async (req, res) => {
     const product = await ProductModel.findById(req.params.id);
+    console.log("pro,",product)
     if (product) {
       res.json(product);
     }
@@ -24,5 +27,7 @@ productRoute.get(
     throw new Error("product not found")
   }})
 );
+
+
 
 module.exports = productRoute;
