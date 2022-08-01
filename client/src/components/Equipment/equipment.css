@@ -10,13 +10,21 @@
   padding-top: 2%;
   padding-bottom: 1%;
 }
-
+.giftText {
+  color: white !important;
+}
+.containerBaristaCourse {
+  padding: 60px 10px 10px 10px !important;
+}
 .pro {
   width: 23%;
   min-width: 250px;
   padding: 10px 12px;
   margin: 15px;
   position: relative;
+}
+.courseBarista {
+  padding: 10px;
 }
 .pro img {
   width: 100%;
@@ -30,10 +38,18 @@
   justify-content: center;
   cursor: pointer;
   /* z-index: 3; */
+  margin: 20px;
   background-color: black;
 }
 
 .titleDrink {
+  /* position: relative;
+  color: white;
+  /* margin: 0 auto; */
+  /* width: 100%;
+  font-size: 18px;
+  top: 0%;  */
+
   position: absolute;
   color: white;
   text-align: center;
@@ -59,18 +75,18 @@ h2 {
 }
 .equipmentText {
   color: black !important;
-text-align: center;
+  text-align: center;
 }
 
-.equipmentContainer{
-    background-color: white;
+.equipmentContainer {
+  background-color: white;
 }
-.equipmentContainer{
-    margin: 30px;
+.equipmentContainer {
+  margin: 30px;
 }
-.equipmentsComponent{
-    margin: 20px;
+.equipmentsComponent {
+  margin: 20px;
 }
-.equipmentsContainer{
-    margin: 20px;
+.equipmentsContainer {
+  margin: 20px;
 }

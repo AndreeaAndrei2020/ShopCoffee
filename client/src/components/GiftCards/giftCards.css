@@ -1,0 +1,8 @@
+ .giftCardDetails{
+    position: absolute;
+    color: white;
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+    top: 10%;
+}

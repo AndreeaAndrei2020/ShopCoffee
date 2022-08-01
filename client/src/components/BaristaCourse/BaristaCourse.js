@@ -13,6 +13,7 @@ function BaristaCourse() {
     const fetchproducts = async () => {
       const { data } = await axios.get(`${API_URL}/api/baristaCourses`);
           setBaristaCourses(data['baristaCourses']);
+          console.log("fd",data)
     };
     fetchproducts();
   }, []);
@@ -26,7 +27,7 @@ function BaristaCourse() {
             return (
               <div className="pro equipmentContainer" key={index}>
                 <Link to={`/baristaCourses/${baristaCourse._id}`}>
-                  <div className="titleDrink">
+                  <div className="titleDrinkBaristaCourse">
                     <h3 className="equipmentText" style={{color: 'white'}}>{baristaCourse.name}</h3>
                     <p className="equipmentText">- {baristaCourse.price} ron -</p>
                   </div>

@@ -17,8 +17,9 @@ export const MenuItems = [
   },
   {
   
-    title: " Recipes for Home",
-    src: require('./photosHome/recipesForHome.jpg'),
-    link :"/menu"
+    title: "Gift cards",
+    src: require('./photosHome/3.jpg'),
+    link :"/giftCards"
   },
+  
 ];

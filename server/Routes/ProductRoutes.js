@@ -10,7 +10,7 @@ productRoute.get(
   "/",
   asyncHandler(async (req, res) => {
     const drinks = await ProductModel.find({});
-    res.json({ drinksCoffee: drinks }); ///aici trimit la frontend
+    res.json(drinks); ///aici trimit la frontend
   })
 );
 
@@ -18,7 +18,6 @@ productRoute.get(
   "/:id",
   asyncHandler(async (req, res) => {
     const product = await ProductModel.findById(req.params.id);
-    console.log("pro,",product)
     if (product) {
       res.json(product);
     }

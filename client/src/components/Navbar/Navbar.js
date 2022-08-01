@@ -61,9 +61,9 @@ function Navbar() {
             <li>
               <div className="dropdown" onClick={functionClickedDropdown}>
                 {/* <Link to="/" className="linkNavbar "> */}
-                  <p className="nav-links " id="dropdownForOutside">
-                    Shop <i className="bx bxs-chevron-down "></i>{" "}
-                  </p>
+                <p className="nav-links " id="dropdownForOutside">
+                  Shop <i className="bx bxs-chevron-down "></i>{" "}
+                </p>
                 {/* </Link> */}
 
                 <div className={styleDropdown}>
@@ -78,6 +78,9 @@ function Navbar() {
                   </Link>
                   <Link to="/equipment" className="linkDropdown">
                     Home Equipments
+                  </Link>
+                  <Link to="/giftCards" className="linkDropdown">
+                    Gift Cards
                   </Link>
                 </div>
               </div>

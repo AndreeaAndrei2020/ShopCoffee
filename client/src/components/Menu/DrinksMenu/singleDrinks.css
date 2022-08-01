@@ -23,9 +23,22 @@
 }
 
 .col2 img {
-  max-width: 100%;
+  max-width: 
+  100%;
   padding: 50px 0;
 }
+.divDetails{
+display: inline;
+}
+.divDetails select{
+  padding: 10px;
+  font-weight: bold;
+  }
+  .divDetails select option{
+    padding: 10px;
+    font-weight: bold;
+    }
+   
 .small-img-col {
   flex-basis: 24%;
   cursor: pointer;
@@ -36,6 +49,9 @@
 }
 .single-product .col2 img {
   padding: 20px;
+}
+option{
+  background-color: yellow;
 }
 .col2 {
   flex-basis: 50%;

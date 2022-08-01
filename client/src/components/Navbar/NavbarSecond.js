@@ -58,9 +58,9 @@ function NavbarSecond() {
           <li>
             <div className="dropdown" onClick={functionClickedDropdown}>
               {/* <Link to="/" className="linkNavbar "> */}
-                <p className="nav-links " id="dropdownForOutside">
-                  Shop <i className="bx bxs-chevron-down "></i>{" "}
-                </p>
+              <p className="nav-links " id="dropdownForOutside">
+                Shop <i className="bx bxs-chevron-down "></i>{" "}
+              </p>
               {/* </Link> */}
 
               <div className={styleDropdown}>
@@ -70,12 +70,15 @@ function NavbarSecond() {
                 <Link to="/food" className="linkDropdown">
                   Food
                 </Link>
+                <Link to="/giftCards" className="linkDropdown">
+                  Gift Cards
+                </Link>
                 <Link to="/baristaCourses" className="linkDropdown">
-                    Barista Course
-                  </Link>
-                  <Link to="/equipment" className="linkDropdown">
-                    Home Equipments
-                  </Link>
+                  Barista Course
+                </Link>
+                <Link to="/equipment" className="linkDropdown">
+                  Home Equipments
+                </Link>{" "}
               </div>
             </div>
           </li>

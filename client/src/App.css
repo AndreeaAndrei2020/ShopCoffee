@@ -8,3 +8,6 @@ body{
   /* height:100vh !important; */
  background-color: black;
 }
+.spinner-border{
+  color: white !important;
+}

@@ -13,7 +13,9 @@ import SingleEquipment from './components/Equipment/SingleEquipment.js'
 import BaristaCourse from "./components/BaristaCourse/BaristaCourse";
 import SingleBaristaCourse from "./components/BaristaCourse/SingleBaristaCourse.js";
 import SingleFood from "./components/Menu/FoodMenu/SingleFood";
-
+import CartScreen from './components/CartScreen/CartScreen.js'
+import GiftCards from "./components/GiftCards/GiftCards";
+import GiftCard from "./components/GiftCards/GiftCard";
 
 function App() {
   return (
@@ -29,9 +31,11 @@ function App() {
           <Route path="/drinks/:id" element={<SingleDrink />} />
           <Route path="/equipment" element={<Equipment />} />
           <Route path="/equipment/:id" element={<SingleEquipment />} />
-          
+          <Route path="/cart" element={<CartScreen />} />
           <Route path="/baristaCourses" element={<BaristaCourse />} />
           <Route path="baristaCourses/:id" element={<SingleBaristaCourse />} />
+          <Route path="/giftCards" element={<GiftCards />} />
+          <Route path="/giftCards/:id" element={<GiftCard />} />
         </Routes>
         <Footer />
     </Router> </div>
