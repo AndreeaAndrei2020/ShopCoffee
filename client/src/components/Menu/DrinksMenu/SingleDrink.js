@@ -16,9 +16,9 @@ const SingleDrink = ({ history }) => {
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
-  // useEffect(() => {
-  //   dispatch(listProductDetails(id));
-  // }, [dispatch, id]);
+  useEffect(() => {
+    dispatch(listProductDetails(id));
+  }, [dispatch, id]);
 
   const AddToCartHAndle = (e) => {
     e.preventDefault();
