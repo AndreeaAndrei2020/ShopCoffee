@@ -31,6 +31,7 @@ function App() {
           <Route path="/drinks/:id" element={<SingleDrink />} />
           <Route path="/equipment" element={<Equipment />} />
           <Route path="/equipment/:id" element={<SingleEquipment />} />
+          <Route path="/cart/:id" element={<CartScreen />} />
           <Route path="/cart" element={<CartScreen />} />
           <Route path="/baristaCourses" element={<BaristaCourse />} />
           <Route path="baristaCourses/:id" element={<SingleBaristaCourse />} />

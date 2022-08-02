@@ -28,7 +28,7 @@ function NavbarSecond() {
   }
 
   document.addEventListener("click", function (event) {
-    console.log(event.target.className.split(" "));
+    // console.log(event.target.className.split(" "));
 
     if (event.target.id !== "dropdownForOutside") {
       setClickedDropdown(false);

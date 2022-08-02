@@ -1,7 +1,9 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+
 import NavbarSecond from "../../Navbar/NavbarSecond";
 import { listProductDetails } from "../../../Redux/Actions/ProductActions";
 import Loading from "../../LoadingError/Loading";
@@ -10,12 +12,15 @@ import "./singleDrinks.css";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
-const SingleDrink = ({ history }) => {
+const SingleDrink = ({}) => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
+
+  
   useEffect(() => {
     dispatch(listProductDetails(id));
   }, [dispatch, id]);
@@ -23,7 +28,8 @@ const SingleDrink = ({ history }) => {
   const AddToCartHAndle = (e) => {
     e.preventDefault();
     console.log(e);
-    history.push(`/cart/${id}?qty=${qty}`);
+    navigate(`/cart/${id}?qty=${qty}`);
+
   };
   return (
     <div>
@@ -65,10 +71,11 @@ const SingleDrink = ({ history }) => {
                         </button>
                       </div>
                       <div className="divDetails">
-                        <select >
+                        <select
+                          value={qty}
+                          onChange={(e) => setQty(e.target.value)}
+                        >
                           {[...Array(product.countInStock).keys()].map((x) => (
-                          
-                           
                             <option
                               key={x + 1}
                               value={x + 1}
@@ -76,7 +83,6 @@ const SingleDrink = ({ history }) => {
                             >
                               {x + 1}
                             </option>
-                          
                           ))}
                         </select>{" "}
                       </div>
