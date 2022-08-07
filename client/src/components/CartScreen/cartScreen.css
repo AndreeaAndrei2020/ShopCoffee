@@ -1,0 +1,89 @@
+.cart-page {
+  margin: 30px 60px;
+  padding: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.cart-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+th {
+  text-align: left;
+  padding: 5px 20px 5px 20px;
+  color: #fff;
+  background: rgb(168, 126, 70);
+  font-weight: normal;
+}
+
+td {
+  padding: 10px 20px;
+}
+td input {
+  width: 40px;
+  height: 30px;
+  padding: 5px;
+}
+.remove {
+  color: rgb(168, 126, 70);
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+.cart-info img {
+  width: 80px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.total-price {
+  display: flex;
+  justify-content: flex-end;
+}
+.total-price table {
+  border-top: 3px solid rgb(168, 126, 70);
+  width: 100%;
+  max-width: 400px;
+}
+td:last-child {
+  text-align: right;
+}
+
+th:last-child {
+  text-align: right;
+}
+
+@media only screen and (max-width: 600px) {
+  table{
+    display: table;
+  }
+}
+tr {
+  background-color: rgb(168, 126, 70, 0.1);
+}
+
+table select{
+  padding: 10px;
+}
+table option{
+  background-color: black !important;
+  color: white !important;
+}
+.CheckOut{
+  display: flex;
+  float: right;
+  margin-top:4px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.CheckOut button{
+  margin-top:4px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}

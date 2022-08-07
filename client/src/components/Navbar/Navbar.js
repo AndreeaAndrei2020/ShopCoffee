@@ -96,7 +96,7 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-          <Button id="SingupBtn"> Sign up </Button>
+          <Button id="SingupBtn" className="buttonSignup"> Sign up </Button>
         </nav>
         <div className="centered">
           It's not just coffee, it's an experience!

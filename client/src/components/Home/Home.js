@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import { MenuItems } from "./MenuItems";
 import "./Home.css";
 import Navbar from "../Navbar/Navbar";
+import Header from "../Navbar/Header";
 
 function Home() {
   return (
     <div>
       <Navbar />
+      <Header/>
       <div className="divHomeMenuitems">
         {MenuItems.map((item, index) => {
           console.log(item.src);

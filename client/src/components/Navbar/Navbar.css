@@ -104,16 +104,13 @@
   font-size: 20px;
 }
 
-
-
 .dropdownHidden {
   display: none !important;
 }
 
-.hrUnderTheNavbar{
+.hrUnderTheNavbar {
   border: 1px solid white;
 }
-
 
 @media screen and (max-width: 960px) {
   .NavBarItems {
@@ -193,9 +190,13 @@
     transform: 250ms;
   }
 
-  Button {
-    display: none;
+  .buttonSignup {
+    display: none !important;
   }
+
+  /* Button {
+    display: none !important;
+  } */
 }
 
 @media screen and (max-width: 960px) {

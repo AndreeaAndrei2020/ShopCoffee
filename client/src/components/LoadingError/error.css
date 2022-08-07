@@ -1,0 +1,6 @@
+.alert-danger{
+    background-color: #ffdddd;
+    text-align: center;
+    display: block;
+    padding: 10px;
+}

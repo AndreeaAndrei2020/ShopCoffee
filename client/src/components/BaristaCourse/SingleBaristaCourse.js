@@ -8,7 +8,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 const SingleBaristaCourse = () => {
   const { id } = useParams();
-  console.log("id" ,id)
+
   const [drink, setDrink] = useState({});
   useEffect(() => {
     const fetchproduct = async () => {
