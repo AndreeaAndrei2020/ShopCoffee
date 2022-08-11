@@ -19,7 +19,10 @@ function ShippingScreen() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const nameUser = useSelector((state) => state.userLogin).userInfo.name;
+
+  const nameUser = useSelector((state) => state.userLogin);
+
+  console.log(nameUser);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -48,17 +51,12 @@ function ShippingScreen() {
                 data-mdb-animation-on-scroll="repeat"
                 className="fas fa-3x fa-shipping-fast text-white"
               ></i>
-              <h3 className="mt-3 text-white">Welcome, {nameUser}</h3>
+              <h3 className="mt-3 text-white">
+                {" "}
+                {nameUser ? <>Welcome, {nameUser.userInfo.name}</> : ""}
+              </h3>
               <p className="white-text">Complete your order!</p>
             </div>
-            {/* <div className="text-center">
-    <button
-      type="submit"
-      className="btn btn-white btn-rounded back-button"
-    >
-      Go back
-    </button>
-  </div> */}
           </div>
           <div className="col-md-9 justify-content-center ">
             <div className="card card-custom pb-4">
@@ -68,32 +66,7 @@ function ShippingScreen() {
                 </div>
 
                 <form className="mb-0" onSubmit={submitHandler}>
-                  <div className="row mb-4">
-                    {/* <div className="col">
-                      <div className="form-outline">
-                        <label className="" htmlFor="htmlForm9Example1">
-                          First name
-                        </label>
-                        <input
-                          type="text"
-                          id="form9Example1"
-                          className="form-control input-custom"
-                        />
-                      </div>
-                    </div>
-                    <div className="col">
-                      <div className="form-outline">
-                        <label className="" htmlFor="form9Example2">
-                          Last name
-                        </label>
-                        <input
-                          type="text"
-                          id="form9Example2"
-                          className="form-control input-custom"
-                        />
-                      </div>
-                    </div> */}
-                  </div>
+                  <div className="row mb-4"></div>
                   <div className="row mb-4">
                     <div className="col">
                       <div className="form-outline">
@@ -174,62 +147,6 @@ function ShippingScreen() {
             </div>
           </div>
         </div>
-        {/* <section className="container forms">
-          <div className="form login">
-            <div className="headerProfile">
-              <h2>Delivery Address</h2>
-            </div>
-            <div className="form-content">
-              <form onSubmit={submitHandler}>
-                <div className="field input-field">
-                  <input
-                    type="text"
-                    placeholder="Enter adress"
-                    className="input"
-                    value={adress}
-                    onChange={(e) => setAddress(e.target.value)}
-                    required
-                  />
-                </div>
-                <div className="field input-field">
-                  <input
-                    type="text"
-                    placeholder="Enter city"
-                    className="input"
-                    required
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                  />
-                </div>
-                <div className="field input-field">
-                  <input
-                    type="text"
-                    placeholder="Enter postal code"
-                    className="password"
-                    required
-                    value={postalCode}
-                    onChange={(e) => setPostalCode(e.target.value)}
-                  />
-                </div>
-                <div className="field input-field">
-                  <input
-                    type="text"
-                    placeholder="Enter country"
-                    className="password"
-                    required
-                    value={country}
-                    onChange={(e) => setCountry(e.target.value)}
-                  />
-                </div>
-                <div className="field button-field">
-                  <button className="btnLogin" type="submit">
-                    Continue
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </section> */}
       </div>
     </div>
   );

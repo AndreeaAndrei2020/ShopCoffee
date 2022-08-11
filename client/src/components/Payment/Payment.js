@@ -4,32 +4,95 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { savePaymentMethod } from "../../Redux/Actions/cartActions";
 import Message from "../LoadingError/Error.js";
+import "./payment.css";
+import metamask from "./metamask.png";
 function Payment() {
   window.scrollTo(0, 0);
 
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
-
+  const [checkedInput, setCheckedInput] = useState(false);
   if (!shippingAddress) {
     navigate("/shipping");
   }
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const [alert,setAlert] = useState({ display: "none" })
   const [paymentMethod, setPaymentMethod] = useState("Paypal");
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(savePaymentMethod(paymentMethod));
-    navigate("/placeorder");
+    if (checkedInput === true) {
+      dispatch(savePaymentMethod(paymentMethod));
+      navigate("/placeorder");
+    } else {
+      setAlert({ display: "block" })
+    }
   };
   return (
     <div>
       {" "}
       <div>
         <NavbarSecond />
-        <section className="container forms">
+
+        <div className="cryptoContainer">
+          <div class=" cryptocontainer">
+            <div class="contact-box">
+              <div class="left">
+                <div class="alert " role="alert" style={alert}>
+                  Sorry, if you don't accept the method of payment, we can't let
+                  you continue the order
+                </div>
+
+                <div className="smallerLeft">
+                  <h2>
+                    <img src={metamask}></img>
+                  </h2>
+                  <p style={{ color: "white" }}>
+                    SO OUR SITE ONLY ACCEPTS PAYMENT IN ETHEREUM, THROUGH THE
+                    METAMASK PLATFORM TO ENCOURAGE YOUNG PEOPLE TO INVEST IN THE
+                    CRYPTO MARKET
+                  </p>
+                  <form onSubmit={submitHandler}>
+                    <input
+                      type="radio"
+                      placeholder="Enter adress"
+                      className="input"
+                      // required
+                      onChange={() => {
+                        setCheckedInput(true);
+                      }}
+                      // onChange={(e) => setPaymentMethod(e.target.value)}
+                    />
+
+                    <label
+                      style={{
+                        color: "white",
+                        marginLeft: "7px",
+                        marginBottom: "7px",
+                      }}
+                    >
+                      YES, I accept the payment in Ethereum
+                    </label>
+
+                    <button class="btnContinue">Continue</button>
+                  </form>
+                </div>
+              </div>{" "}
+              <div class="right"> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Payment;
+
+{
+  /* <section className="container forms">
           <div className="form login">
             <div className="headerProfile">
               <h2>SELECT PAYMENT METHOD</h2>
@@ -60,10 +123,5 @@ function Payment() {
               </form>
             </div>
           </div>
-        </section>
-      </div>
-    </div>
-  );
+        </section> */
 }
-
-export default Payment;

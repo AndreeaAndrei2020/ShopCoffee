@@ -7,8 +7,8 @@ const foodSchema = require("../Models/foodModel.js");
 foodRoute.get(
   "/",
   asyncHandler(async (req, res) => {
-    const foods = await foodSchema.find({});
-    res.json({foods}); ///aici trimit la frontend
+    const food = await foodSchema.find({});
+    res.json(food); ///aici trimit la frontend
   })
 );
 

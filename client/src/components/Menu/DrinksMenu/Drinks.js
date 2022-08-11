@@ -13,6 +13,7 @@ function Drinks() {
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
+  console.log("productList",productList)
   const { loading, error, products } = productList;
   
   useEffect(() => {

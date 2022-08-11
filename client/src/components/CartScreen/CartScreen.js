@@ -30,12 +30,12 @@ function CartScreen() {
   const subTotal = cartItems
     .reduce((a, i) => a + i.qty * i.price, 0)
     .toFixed(2);
-  console.log("dd", cartItems);
-  useEffect(() => {
-    if (id) {
-      dispatch(addToCart(id, qty));
-    }
-  }, [dispatch, id, qty]);
+
+  // useEffect(() => {
+  //   if (id) {
+  //     dispatch(addToCart(id, qty));
+  //   }
+  // }, [dispatch, id, qty]);
 
   const removeFromCartHandle = (id) => {
     dispatch(removefromcart(id));
@@ -44,7 +44,8 @@ function CartScreen() {
   return (
     <div style={{ color: "white" }}>
       <NavbarSecond />
-      <Header />
+
+      {/* <Header /> */}
 
       <h1 style={{ textAlign: "center" }}>Cart Screen</h1>
       {cartItems.length === 0 ? (
@@ -69,25 +70,30 @@ function CartScreen() {
                             <div className="row d-flex justify-content-between align-items-center">
                               <div className="col-md-2 col-lg-2 col-xl-2">
                                 <img
-                                  src={`${API_URL}${item.src}`}
+                                  src={`${API_URL}${item.name}`}
                                   className="img-fluid rounded-3"
                                   alt="Cotton T-shirt"
                                 />
-                              </div>
-                              <div className="col-md-3 col-lg-3 col-xl-3">
-                                <p
-                                  className="lead fw-normal mb-2"
-                                  style={{ color: "black" }}
-                                >
-                                  {item.title}
-                                </p>
+                                <div>
+                                  <p
+                                    className="lead fw-normal mb-2"
+                                    style={{ color: "black" }}
+                                  >
+                                    {item.title}
+                                  </p>
+                                </div>
                               </div>
 
-                       
-                              <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
-                              <select
+                              <div
+                                className="col-md-3 col-lg-3 col-xl-2 d-flex"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <select
+                                  className="selectQty"
                                   value={item.qty}
                                   onChange={(e) => {
+                                    e.stopPropagation();
+                                    e.preventDefault();
                                     dispatch(
                                       addToCart(
                                         item.product,
@@ -111,7 +117,12 @@ function CartScreen() {
                               </div>
                               <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                                 <h5 className="mb-0" style={{ color: "black" }}>
-                                  {item.price}.00 Ron
+                                  Price: {item.price}.00 Ron
+                                </h5>
+                              </div>
+                              <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                <h5 className="mb-0" style={{ color: "black" }}>
+                                  Subtotal: {item.price * item.qty}.00 ron
                                 </h5>
                               </div>
                               <div
@@ -127,75 +138,68 @@ function CartScreen() {
                             </div>
                           </div>
                         </div>
-                        {/* 
-                        <div className="card mb-4">
-                          <div className="card-body p-4 d-flex flex-row">
-                            <div className="form-outline flex-fill">
-                              <input
-                                type="text"
-                                id="form1"
-                                className="form-control form-control-lg"
-                              />
-                              <label className="form-label" for="form1">
-                                Discound code
-                              </label>
-                            </div>
-                            <button
-                              type="button"
-                              className="btn btn-outline-warning btn-lg ms-3"
-                            >
-                              Apply
-                            </button>
-                          </div>
-                        </div> */}
                       </div>
                     );
                   })}
 
-                  <div className="card">
-                    <div className="card-body">
+                </div>
+              </div>
+            </div>
+
+            {/* CHECK OUT */}
+            <div className="container h-100 py-5">
+              <div class="col-md-4">
+                <div class="card mb-4">
+                  <div class="card-header py-3">
+                    <h5
+                      class="mb-0"
+                      style={{ color: "black", textAlign: "center" }}
+                    >
+                      Summary
+                    </h5>
+                  </div>
+                  <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                        Products
+                        <span>{subTotal}</span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                        Shipping
+                        <span>20.00 ron</span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                        <div>
+                          <strong>Total amount</strong>
+                          <strong>
+                            <p class="mb-0">(including VAT)</p>
+                          </strong>
+                        </div>
+                        <span>
+                          <strong>{total} ron</strong>
+                        </span>
+                      </li>
+                    </ul>
+                    <Link to="/shipping">
                       <button
                         type="button"
-                        className="btn btn-warning btn-block btn-lg"
+                        class="btn btn-primary btn-lg btn-block buttonCheckOutCartScreen"
                       >
-                        Proceed to Pay
+                        Go to checkout
                       </button>
-                    </div>
+                    </Link>
+                    <h5 class="fw-bold mb-5" style={{ marginTop: "7px" }}>
+                      <Link to="/menu" className="backToShipping">
+                        <i class="fas fa-angle-left me-2 " ></i>Back to shopping
+                      </Link>
+                    </h5>
                   </div>
                 </div>
               </div>
             </div>
+            {/* CHECK OUT  STOP*/}
           </section>
 
-          <div className="smallContainerCart cart-page">
-            <div className="total-price">
-              <table>
-                <thead>
-                  {" "}
-                  <tr>
-                    <td>Subtotal</td>
-                    <td>{subTotal}</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Shipping</td>
-                    <td>20 ron</td>
-                  </tr>
-                  <tr>
-                    <td>Total</td>
-                    <td>{total}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>{" "}
-            <div className="CheckOut">
-              <button>
-                {" "}
-                <Link to="/shipping"> Check out</Link>{" "}
-              </button>
-            </div>
-          </div>
         </>
       )}
     </div>
@@ -203,299 +207,3 @@ function CartScreen() {
 }
 
 export default CartScreen;
-
-// <div className="singleDrinkComponent">
-// <div className="small-container single-product">
-//   <div className="row">
-//     <div className="col2">
-//       <img
-//         src={`${API_URL}${item.name}`}
-//         alt={item.name}
-//       ></img>
-//     </div>
-//     <div className="col2">
-//       {/* <h1>{item.name}</h1> */}
-//       {/* <p className="description">{item.description}</p> */}
-//       <h4>- {item.price} ron -</h4>
-//       <h5>QUANTITY</h5>
-
-//       <div className="buttonContainer">
-{
-  /* <p className="inputValueAmount">
-          {item.countInStock}{" "}
-        </p> */
-}
-{
-  /* <select
-          value={item.qty}
-          onChange={(e) => {
-            dispatch(
-              addToCart(
-                item.product,
-                Number(e.target.value)
-              )
-            );
-          }}
-        >
-          {[...Array(item.countInStock).keys()].map(
-            (x) => (
-              <option
-                key={x + 1}
-                value={x + 1}
-                style={{ color: "black" }}
-              >
-                {x + 1}
-              </option>
-            )
-          )}
-        </select>{" "}
-      </div>
-
-      <div
-        className="buttonContainer"
-        onClick={() =>
-          removeFromCartHandle(item.product)
-        }
-      >
-        REMOVE FROM CARD
-      </div>
-    </div>
-  </div>
-</div>
-</div>{" "} */
-}
-
-////BOOOOOOOOOOTRSAAAAAAAAAAAAP
-{
-  /* <section class="h-100" style="background-color: #eee;">
-  <div class="container h-100 py-5">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-10">
-
-        <div class="d-flex justify-content-between align-items-center mb-4">
-          <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
-          <div>
-            <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!" class="text-body">price <i
-                  class="fas fa-angle-down mt-1"></i></a></p>
-          </div>
-        </div>
-
-        <div class="card rounded-3 mb-4">
-          <div class="card-body p-4">
-            <div class="row d-flex justify-content-between align-items-center">
-              <div class="col-md-2 col-lg-2 col-xl-2">
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                  class="img-fluid rounded-3" alt="Cotton T-shirt">
-              </div>
-              <div class="col-md-3 col-lg-3 col-xl-3">
-                <p class="lead fw-normal mb-2">Basic T-shirt</p>
-                <p><span class="text-muted">Size: </span>M <span class="text-muted">Color: </span>Grey</p>
-              </div>
-              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                <button class="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                  <i class="fas fa-minus"></i>
-                </button>
-
-                <input id="form1" min="0" name="quantity" value="2" type="number"
-                  class="form-control form-control-sm" />
-
-                <button class="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                  <i class="fas fa-plus"></i>
-                </button>
-              </div>
-              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 class="mb-0">$499.00</h5>
-              </div>
-              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card rounded-3 mb-4">
-          <div class="card-body p-4">
-            <div class="row d-flex justify-content-between align-items-center">
-              <div class="col-md-2 col-lg-2 col-xl-2">
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                  class="img-fluid rounded-3" alt="Cotton T-shirt">
-              </div>
-              <div class="col-md-3 col-lg-3 col-xl-3">
-                <p class="lead fw-normal mb-2">Basic T-shirt</p>
-                <p><span class="text-muted">Size: </span>M <span class="text-muted">Color: </span>Grey</p>
-              </div>
-              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                <button class="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                  <i class="fas fa-minus"></i>
-                </button>
-
-                <input id="form1" min="0" name="quantity" value="2" type="number"
-                  class="form-control form-control-sm" />
-
-                <button class="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                  <i class="fas fa-plus"></i>
-                </button>
-              </div>
-              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 class="mb-0">$499.00</h5>
-              </div>
-              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card rounded-3 mb-4">
-          <div class="card-body p-4">
-            <div class="row d-flex justify-content-between align-items-center">
-              <div class="col-md-2 col-lg-2 col-xl-2">
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                  class="img-fluid rounded-3" alt="Cotton T-shirt">
-              </div>
-              <div class="col-md-3 col-lg-3 col-xl-3">
-                <p class="lead fw-normal mb-2">Basic T-shirt</p>
-                <p><span class="text-muted">Size: </span>M <span class="text-muted">Color: </span>Grey</p>
-              </div>
-              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                <button class="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                  <i class="fas fa-minus"></i>
-                </button>
-
-                <input id="form1" min="0" name="quantity" value="2" type="number"
-                  class="form-control form-control-sm" />
-
-                <button class="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                  <i class="fas fa-plus"></i>
-                </button>
-              </div>
-              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 class="mb-0">$499.00</h5>
-              </div>
-              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card rounded-3 mb-4">
-          <div class="card-body p-4">
-            <div class="row d-flex justify-content-between align-items-center">
-              <div class="col-md-2 col-lg-2 col-xl-2">
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                  class="img-fluid rounded-3" alt="Cotton T-shirt">
-              </div>
-              <div class="col-md-3 col-lg-3 col-xl-3">
-                <p class="lead fw-normal mb-2">Basic T-shirt</p>
-                <p><span class="text-muted">Size: </span>M <span class="text-muted">Color: </span>Grey</p>
-              </div>
-              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                <button class="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                  <i class="fas fa-minus"></i>
-                </button>
-
-                <input id="form1" min="0" name="quantity" value="2" type="number"
-                  class="form-control form-control-sm" />
-
-                <button class="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                  <i class="fas fa-plus"></i>
-                </button>
-              </div>
-              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 class="mb-0">$499.00</h5>
-              </div>
-              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card mb-4">
-          <div class="card-body p-4 d-flex flex-row">
-            <div class="form-outline flex-fill">
-              <input type="text" id="form1" class="form-control form-control-lg" />
-              <label class="form-label" for="form1">Discound code</label>
-            </div>
-            <button type="button" class="btn btn-outline-warning btn-lg ms-3">Apply</button>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-body">
-            <button type="button" class="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section> */
-}
-
-///CE ERA  INAINTE
-
-{
-  /* <div className="smallContainerCart cart-page">
-<table>
-  <tr>
-    <th>PRODUCT</th>
-    <th>QUANTITY</th>
-    <th>SUBTOTAL</th>
-  </tr>
-  <tr>
-    <td>
-      <div className="cart-info">
-        <img src={`${API_URL}${item.name}`} alt="dd"></img>
-        <div>
-          {/* <p>{item.name}</p> */
-}
-//           <small>{item.price} ron</small>
-//           <br></br>
-
-//           <div
-//             className="remove"
-//             onClick={() => removeFromCartHandle(item.product)}
-//           >
-//             REMOVE
-//           </div>
-//         </div>
-//       </div>
-//     </td>
-//     <td>
-//       <select
-//         value={item.qty}
-//         onChange={(e) => {
-//           dispatch(
-//             addToCart(item.product, Number(e.target.value))
-//           );
-//         }}
-//       >
-//         {[...Array(item.countInStock).keys()].map((x) => (
-//           <option
-//             key={x + 1}
-//             value={x + 1}
-//             style={{ color: "black" }}
-//           >
-//             {x + 1}
-//           </option>
-//         ))}
-//       </select>{" "}
-//     </td>
-//     <td>{item.price * item.qty}</td>
-//   </tr>
-// </table>
-// </div> */}

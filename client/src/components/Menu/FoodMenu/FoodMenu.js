@@ -6,23 +6,31 @@ import NavbarSecond from "../../Navbar/NavbarSecond";
 import Loading from "../../LoadingError/Loading";
 import Message from "../../LoadingError/Error";
 import { useDispatch, useSelector } from "react-redux";
+import { listFood } from "../../../Redux/Actions/ProductActions";
 const API_URL = process.env.REACT_APP_API_URL;
 
 function FoodMenu() {
   const [foods, setFoods] = useState([]);
 
-  
-  const productList = useSelector((state) => state.productList);
-  const { loading, error, products } = productList;
+  const dispatch = useDispatch();
+  const foodList = useSelector((state) => state.foodList);
+  const { loading, error, food } = foodList;
+
+  console.log(111,food)
+  // useEffect(() => {
+  //   const fetchproducts = async () => {
+  //     const { data } = await axios.get(`${API_URL}/api/food`);
+  //     console.log("data client", data);
+  //     setFoods(data);
+  //   };
+  //   fetchproducts();
+  // }, []);
+
 
   useEffect(() => {
-    const fetchproducts = async () => {
-      const { data } = await axios.get(`${API_URL}/api/food`);
-      console.log("data client", data["foods"]);
-      setFoods(data["foods"]);
-    };
-    fetchproducts();
-  }, []);
+    dispatch(listFood());
+  }, [dispatch]);
+  
   return (
     <div>
       <NavbarSecond />
@@ -34,7 +42,7 @@ function FoodMenu() {
           <Message variant="alert-danger">{error}</Message>
         ) : (
           <>
-            {foods.map((food, index) => {
+            {food.map((food, index) => {
               return (
                 <div className="pro" key={index}>
                   <Link to={`/food/${food._id}`}>

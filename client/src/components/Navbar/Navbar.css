@@ -15,9 +15,10 @@
 .navbar-logo .imgLogo {
   margin-left: 0.5rem;
   font-size: 1.6rem;
+  
 }
 
-.dropdown-content {
+.dropdownContent , .dropdownContentUser {
   position: absolute;
   background-color: black;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -25,7 +26,7 @@
   border-radius: 20px;
   color: white;
 }
-.dropdown-content .linkDropdown {
+.dropdownContent .linkDropdown {
   float: none;
   color: white;
   padding: 12px 16px;
@@ -33,7 +34,20 @@
   display: block;
   margin: 0;
 }
-.dropdown-content .linkDropdown:hover {
+.dropdownContentUser .linkDropdown {
+  float: none;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  margin: 0;
+}
+.dropdownContent .linkDropdown:hover {
+  background-color: rgb(168, 126, 70);
+  color: white;
+  border-radius: 4px;
+}
+.dropdownContentUser .linkDropdown:hover {
   background-color: rgb(168, 126, 70);
   color: white;
   border-radius: 4px;
@@ -46,12 +60,16 @@
 .nav-menu {
   display: grid;
   grid-template-columns: repeat(4, auto);
-  grid-gap: 10px;
+  grid-gap: 18px;
   list-style: none;
   text-align: center;
   width: 70vw;
   justify-content: end;
   margin-right: 2rem;
+  margin-top: 2rem;
+}
+.nav-menu li{
+  margin-right: 20px !important;
 }
 .nav-links {
   color: white;
@@ -63,9 +81,14 @@
   border-radius: 4px;
   transition: all 0.2s ease-out;
 }
-.fa-bars {
-  color: #fff;
+.navLinkCart:hover{
+  background-color: rgb(168, 126, 70);
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
 }
+/* .fa-bars {
+  color: #fff;
+} */
 .linkNavbar {
   text-decoration: none;
 }
@@ -136,7 +159,7 @@
   }
   .nav-links {
     text-align: center;
-    padding: 1rem;
+    padding: 0.5rem;
     width: 100%;
     display: table;
   }
@@ -189,7 +212,11 @@
     color: black;
     transform: 250ms;
   }
-
+.nav-links .gotocart:hover{
+  color: red !important;
+  background-color: green !important;
+}
+ 
   .buttonSignup {
     display: none !important;
   }
@@ -203,7 +230,11 @@
   .dropdown {
     float: none;
   }
-  .dropdown-content {
+  .dropdownContent {
+    position: relative;
+    width: 100%;
+  }
+  .dropdownContentUser {
     position: relative;
     width: 100%;
   }
@@ -213,3 +244,27 @@
     text-align: left;
   }
 }
+/*  HOMENAVBAR */
+
+/* .navbarHome{
+  background-color: transparent !important;
+}
+.navbarHome li{
+  font-weight: bold !important;
+  color: black !important;
+  margin-right: 10px !important;
+}
+.navbar-light .navbar-nav .nav-link{
+  color: white !important;
+}
+.nav-item{
+  padding: 5px !important;
+}
+.navbar .container-fluid{
+  margin-left:90px !important;
+  margin-right:90px !important;
+} */
+.fa-bars{
+  color: white !important;
+}
+

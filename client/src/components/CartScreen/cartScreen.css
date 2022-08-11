@@ -87,3 +87,41 @@ table option{
   justify-content: center;
   align-items: center;
 }
+
+.buttonCheckOut{
+  background-color: rgb(168, 126, 70) !important;
+  color: white !important;
+}
+.buttonCheckOut:hover{
+  background-color: white !important;
+  color: rgb(168, 126, 70) !important;
+}
+/* .selectQty{
+  display: block !important;
+margin: 0 auto !important;
+}
+
+@media screen and (max-width: 767px) {
+  .selectQty {
+
+    margin: none!important;
+  }
+} */
+
+.buttonCheckOutCartScreen{
+  background-color: rgb(168, 126, 70) !important;
+}
+.buttonCheckOutCartScreen:hover{
+
+  color: black !important;
+}
+.backToShipping:hover{
+  color: rgb(168, 126, 70) !important;
+ padding: 10px !important;
+
+}
+.mb-5{
+  margin:  0px !important;
+  padding-top: 5px !important;
+}
+

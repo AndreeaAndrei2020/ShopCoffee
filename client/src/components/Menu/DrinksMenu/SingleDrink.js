@@ -9,6 +9,8 @@ import { listProductDetails } from "../../../Redux/Actions/ProductActions";
 import Loading from "../../LoadingError/Loading";
 import Message from "../../LoadingError/Error";
 import "./singleDrinks.css";
+import { addToCart } from "../../../Redux/Actions/cartActions";
+import { bindActionCreators } from "redux";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -19,21 +21,35 @@ const SingleDrink = ({}) => {
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
+  const [banner, setBanner] = useState(false);
 
-  
   useEffect(() => {
     dispatch(listProductDetails(id));
   }, [dispatch, id]);
 
   const AddToCartHAndle = (e) => {
     e.preventDefault();
-    console.log(e);
-    navigate(`/cart/${id}?qty=${qty}`);
-
+    // navigate(`/cart/${id}?qty=${qty}`);
+    dispatch(addToCart(id, qty,"drinks"));
+    setBanner(true);
   };
+
   return (
     <div>
       <NavbarSecond />
+      {banner ? (
+        <div
+          class="alert alert-dark banner"
+          role="alert"
+          style={{ color: "white" }}
+        >
+          <h5>
+            {qty}x {product.name} was added to cart{" "}
+          </h5>
+        </div>
+      ) : (
+        ""
+      )}
       <div className="singleDrinkComponent">
         {loading ? (
           <Loading />
@@ -63,17 +79,10 @@ const SingleDrink = ({}) => {
                   {product.countInStock > 0 ? (
                     <>
                       <div className="divDetails">
-                        <button
-                          onClick={AddToCartHAndle}
-                          className="btnAddCard"
-                        >
-                          Add to Card
-                        </button>
-                      </div>
-                      <div className="divDetails">
                         <select
                           value={qty}
                           onChange={(e) => setQty(e.target.value)}
+                          className="selectSingleDrink"
                         >
                           {[...Array(product.countInStock).keys()].map((x) => (
                             <option
@@ -85,6 +94,14 @@ const SingleDrink = ({}) => {
                             </option>
                           ))}
                         </select>{" "}
+                      </div>
+                      <div className="divDetails">
+                        <button
+                          onClick={AddToCartHAndle}
+                          className="btnAddCard"
+                        >
+                          Add to Card
+                        </button>
                       </div>
                     </>
                   ) : null}

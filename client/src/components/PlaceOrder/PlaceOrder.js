@@ -9,7 +9,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 export default function PlaceOrder() {
   window.scrollTo(0, 0);
-  
+
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
 
@@ -34,16 +34,15 @@ export default function PlaceOrder() {
 
   const navigate = useNavigate();
 
-
   const orderCreate = useSelector((state) => state.orderCreate);
 
   const { order, success, error } = orderCreate;
 
- console.log("orderId",order);
   useEffect(() => {
     if (success) {
       navigate(`/orders/${order._id}`);
-      dispatch({ type: ORDER_CREATE_RESET });
+
+      // dispatch({ type: ORDER_CREATE_RESET });
     }
   }, [navigate, dispatch, success, order]);
 
@@ -95,7 +94,7 @@ export default function PlaceOrder() {
                   <img
                     style={{ width: "50px" }}
                     alt={item.name}
-                    src={`${API_URL}${item.src}`}
+                    src={`${API_URL}${item.name}`}
                   ></img>
                 </Link>
 

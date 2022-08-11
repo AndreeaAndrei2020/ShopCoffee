@@ -9,10 +9,8 @@ function Home() {
   return (
     <div>
       <Navbar />
-      <Header/>
       <div className="divHomeMenuitems">
         {MenuItems.map((item, index) => {
-          console.log(item.src);
           return (
             <div className="columnHomeMenuItems" key={index}>
               <Link to={item.link}>

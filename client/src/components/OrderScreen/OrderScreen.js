@@ -8,7 +8,11 @@ import Loading from "../LoadingError/Loading";
 import NavbarSecond from "../Navbar/NavbarSecond";
 import moment from "moment";
 import axios from "axios";
-import { ORDER_PAY_RESET } from "../../Redux/Constants/OrderConstants";
+import {
+  ORDER_CREATE_RESET,
+  ORDER_PAY_RESET,
+} from "../../Redux/Constants/OrderConstants";
+import CryptoPaymentsForm from "./CryptoPaymentsForm";
 const API_URL = process.env.REACT_APP_API_URL;
 
 function OrderScreen() {
@@ -56,6 +60,7 @@ function OrderScreen() {
 
   const successPaymentHandler = (paymentResult) => {
     dispatch(payOrder(orderId, paymentResult));
+    console.log("suceees");
   };
 
   return (
@@ -67,13 +72,17 @@ function OrderScreen() {
         <Message>{error}</Message>
       ) : (
         <>
+          <CryptoPaymentsForm totalPrice={order.totalPrice} />
+          <br></br>
+          <br></br>
+
           <p style={{ color: "white" }}>{order.user.name}</p>
           <a href={`mailto:$${order.user.email}`} style={{ color: "white" }}>
             {order.user.email}
           </a>
           <p style={{ color: "white" }}>{order.shippingAddress.country}</p>
           <p style={{ color: "white" }}>{order.paymentMethod}</p>
-
+          {/* 
           {order.isPaid ? (
             <div>
               <p style={{ color: "white" }}>
@@ -84,9 +93,9 @@ function OrderScreen() {
             <div>
               <p style={{ color: "white" }}>NOT PAID</p>
             </div>
-          )}
+          )} */}
 
-          {order.orderItems.length === 0 ? (
+          {/* {order.orderItems.length === 0 ? (
             <div>
               <Message variant="alert-info mt-5">
                 {" "}
@@ -123,9 +132,9 @@ function OrderScreen() {
                 })}
               </p>
             </div>
-          )}
+          )} */}
 
-          {order.isDelivered ? (
+          {/* {order.isDelivered ? (
             <div>
               <p style={{ color: "white" }}>
                 Delivered on {moment(order.deliveredAt).calendar()}
@@ -136,6 +145,7 @@ function OrderScreen() {
               <p style={{ color: "white" }}>NOT DELIVERED</p>
             </div>
           )}
+          <p style={{ color: "white" }}>{order.totalPrice}</p>
 
           {!order.isPaid && (
             <div>
@@ -143,13 +153,10 @@ function OrderScreen() {
               {!sdkReady ? (
                 <Loading />
               ) : (
-                <PayPalButton
-                  amount={1}
-                  onSuccess={successPaymentHandler}
-                />
+                <PayPalButton amount={1} onSuccess={successPaymentHandler} />
               )}
             </div>
-          )}
+          )} */}
         </>
       )}
     </div>
