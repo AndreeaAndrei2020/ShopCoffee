@@ -8,7 +8,7 @@ equipmentRoute.get(
   "/",
   asyncHandler(async (req, res) => {
     const equipments = await equipmentModel.find({});
-    res.json({equipments}); ///aici trimit la frontend
+    res.json(equipments); ///aici trimit la frontend
   })
 );
 

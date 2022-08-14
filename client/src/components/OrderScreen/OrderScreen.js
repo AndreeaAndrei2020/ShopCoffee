@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
-import { PayPalButton } from "react-paypal-button-v2";
+import { useParams } from "react-router-dom";
+
 import { getOrderDetails, payOrder } from "../../Redux/Actions/OrderActions";
+import { ORDER_PAY_RESET } from "../../Redux/Constants/OrderConstants";
 import Message from "../LoadingError/Error";
 import Loading from "../LoadingError/Loading";
 import NavbarSecond from "../Navbar/NavbarSecond";
-import moment from "moment";
 import axios from "axios";
-import {
-  ORDER_CREATE_RESET,
-  ORDER_PAY_RESET,
-} from "../../Redux/Constants/OrderConstants";
 import CryptoPaymentsForm from "./CryptoPaymentsForm";
+
 const API_URL = process.env.REACT_APP_API_URL;
 
 function OrderScreen() {
@@ -60,7 +57,6 @@ function OrderScreen() {
 
   const successPaymentHandler = (paymentResult) => {
     dispatch(payOrder(orderId, paymentResult));
-    console.log("suceees");
   };
 
   return (

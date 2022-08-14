@@ -4,7 +4,8 @@ const DrinksCocktails = [
     image: "/images/drinks/cocktails/theLadyRose.jpg",
     description: "Rosé Champagnes",
     price: 30,
-    countInStock: 10,
+    countInStock:6,
+    typeOfProduct: "drinks",
   },
 
   {
@@ -13,6 +14,7 @@ const DrinksCocktails = [
     description: "Gin Coktail",
     price: 30,
     countInStock: 10,
+    typeOfProduct: "drinks",
   },
   {
     name: "Shine",
@@ -20,13 +22,15 @@ const DrinksCocktails = [
     description: "Orange Whiskey",
     price: 30,
     countInStock: 10,
+    typeOfProduct: "drinks",
   },
   {
     name: "Mimosa",
     image: "/images/drinks/cocktails/3.jpg",
     description: "Orange Champagne",
     price: 30,
-    countInStock: 10,
+    countInStock: 7,
+    typeOfProduct: "drinks",
   },
   {
     name: "The Pink Drop",
@@ -34,6 +38,7 @@ const DrinksCocktails = [
     description: "Campari Coktail",
     price: 30,
     countInStock: 10,
+    typeOfProduct: "drinks",
   },
   {
     name: "Classy Gessy",
@@ -41,6 +46,7 @@ const DrinksCocktails = [
     description: "",
     price: 30,
     countInStock: 10,
+    typeOfProduct: "drinks",
   },
   {
     name: "Spritz",
@@ -48,6 +54,7 @@ const DrinksCocktails = [
     description: "Aperol Spritz",
     price: 30,
     countInStock: 10,
+    typeOfProduct: "drinks",
   },
   {
     name: "Vodka Dance",
@@ -55,6 +62,7 @@ const DrinksCocktails = [
     description: "Vodka with Sour Apple",
     price: 30,
     countInStock: 0,
+    typeOfProduct: "drinks",
   },
 
   {
@@ -62,6 +70,7 @@ const DrinksCocktails = [
     image: "/images/drinks/cocktails/10.jpg",
     price: 30,
     countInStock: 0,
+    typeOfProduct: "drinks",
   },
   {
     name: "Blue Vodka",
@@ -69,6 +78,7 @@ const DrinksCocktails = [
     description: "Vodka with Blue Curacao",
     price: 30,
     countInStock: 10,
+    typeOfProduct: "drinks",
   },
 ];
 

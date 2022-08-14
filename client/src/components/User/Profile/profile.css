@@ -1,0 +1,48 @@
+.headerProfile {
+  position: relative;
+  height: 13vh;
+  /* background-image: url("./3.jpg"); */
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-radius: 10px;
+}
+.userProfile::before {
+  height: 200px;
+  width: 200px;
+  color: black !important;
+}
+.profileIMG {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+
+}
+
+.divImgProfile {
+  display: flex;
+  left: 20%;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.profile-text{
+    color: black;
+}
+input[type=text],input[type=email],input[type=password]{
+    border : 1px solid black !important;
+}
+
+.inputProfile{
+  background-color: transparent !important;
+  
+}
+.inputProfile input{
+  padding: 20px !important;
+}
+.CantUpdateYourProfile{
+  height: 100vh;
+}

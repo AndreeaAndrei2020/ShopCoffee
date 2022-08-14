@@ -1,7 +1,7 @@
 import {createStore, combineReducers,applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
-import {  productListReducer,productDetailsReducer, foodListReducer, foodDetailsReducer } from './Reducers/ProductReducers';
+import {  productListReducer,productDetailsReducer, foodListReducer, foodDetailsReducer, giftListReducer, giftDetailsReducer, coursesListReducer, courseDetailsReducer, equipmentListReducer, equipmentDetailsReducer } from './Reducers/ProductReducers';
 import { cartReducer } from './Reducers/CartReducers';
 import { userDetailsReducer, userLoginReducer, userRegisterReducer, userUpdateProfileReducer } from './Reducers/userReducers';
 import { orderCreateReducer, orderDetailsReducer, orderPayReducer } from './Reducers/OrderReducers';
@@ -9,9 +9,17 @@ import { orderCreateReducer, orderDetailsReducer, orderPayReducer } from './Redu
 const reducer = combineReducers({
     productList : productListReducer,
     foodList: foodListReducer,
+    coursesList: coursesListReducer,
+    giftList : giftListReducer,
     productDetails: productDetailsReducer,
     foodDetails: foodDetailsReducer,
+    giftDetails: giftDetailsReducer,
     cart: cartReducer,
+    courseDetails: courseDetailsReducer,
+
+    equipmentList : equipmentListReducer,
+    equipmentDetails : equipmentDetailsReducer,
+    
     userLogin: userLoginReducer,
     userRegister: userRegisterReducer,
     userDetails: userDetailsReducer,

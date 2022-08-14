@@ -8,7 +8,7 @@ BaristaCoursesRoute.get(
   "/",
   asyncHandler(async (req, res) => {
     const baristaCourses = await BaristaCoursesModel.find({});
-    res.json({baristaCourses}); ///aici trimit la frontend
+    res.json(baristaCourses); ///aici trimit la frontend
   })
 );
 

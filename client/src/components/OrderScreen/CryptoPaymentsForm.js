@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { ORDER_CREATE_RESET } from "../../Redux/Constants/OrderConstants.js";
+import { useSelector } from "react-redux";
 import ErrorMessage from "./ErrorMessage.js";
 import TxList from "./TsxList.js";
 const { ethers } = require("ethers");
@@ -13,30 +12,33 @@ const startPayment = async ({ setError, setTxs, ether, addr }) => {
     if (!window.ethereum)
       throw new Error("No crypto wallet found. Please install it.");
 
-    await window.ethereum.send("eth_requestAccounts");
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const signer = provider.getSigner();
-    ethers.utils.getAddress(addr);
+    await window.ethereum.send("eth_requestAccounts"); ///intreaba care cont
+
+    // Connecting to MetaMask
+    const provider = new ethers.providers.Web3Provider(window.ethereum); //A connection to the Ethereum network
+    const signer = provider.getSigner(); ///Holds your private key and can sign things
+
+    ethers.utils.getAddress(addr); ///getAddress etse un=utils
+
     const tx = await signer.sendTransaction({
-      to: addr,
+      //Cerere de tranzacție
+      to: addr, ///cui trimit? patronului
       value: ethers.utils.parseEther(ether),
     });
-    console.log({ ether, addr });
-    console.log("tx", tx);
+
     setTxs([tx]);
   } catch (err) {
     setError(err.message);
   }
 };
 
-
-
 function CryptoPaymentsForm(state) {
   const idEth = "ethereum";
   const [priceInEth, setPriceInEth] = useState();
 
-  const [addressTransaction, setAddressTransaction] = useState('');
+  const [addressTransaction, setAddressTransaction] = useState();
 
+  //obtinem pretul actual al ethereum
   const fetchCoin = async () => {
     const { data } = await axios.get(SingleCoin(idEth));
     setPriceInEth(data.market_data.current_price.eur);
@@ -45,36 +47,29 @@ function CryptoPaymentsForm(state) {
 
   const orderDetails = useSelector((state) => state.orderDetails);
   const { order } = orderDetails;
-  console.log(111, order);
+  // console.log(111, order);
 
   const calculateTotalPriceInEth = () => {
-    console.log("Total price", state.totalPrice);
-    console.log("Coin", priceInEth);
+    // console.log("Total price", state.totalPrice);
+    // console.log("Coin", priceInEth);
     return state.totalPrice / priceInEth;
   };
   const yourPrice = calculateTotalPriceInEth();
   const [error, setError] = useState();
   const [txs, setTxs] = useState([]);
 
-  const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
     setError();
     await startPayment({
       setError,
-      setTxs,
+      setTxs, ///tranzactia
       ether: data.get("ether"),
-      addr: data.get("addr"),
+      addr: data.get("addr"), ///cui trimit
     });
     setAddressTransaction(data.get("addr"));
   };
-  
-  useEffect(() => {
-    if(addressTransaction!=='')
-    dispatch({ type: ORDER_CREATE_RESET });
-  },[addressTransaction])
-
 
   return (
     <form className="m-4" onSubmit={handleSubmit}>

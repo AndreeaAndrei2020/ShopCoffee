@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import { createOrder } from "../../Redux/Actions/OrderActions";
 import { ORDER_CREATE_RESET } from "../../Redux/Constants/OrderConstants";
 import Message from "../LoadingError/Error";
 import NavbarSecond from "../Navbar/NavbarSecond";
+
 const API_URL = process.env.REACT_APP_API_URL;
 
 export default function PlaceOrder() {
@@ -41,8 +43,7 @@ export default function PlaceOrder() {
   useEffect(() => {
     if (success) {
       navigate(`/orders/${order._id}`);
-
-      // dispatch({ type: ORDER_CREATE_RESET });
+      dispatch({ type: ORDER_CREATE_RESET });
     }
   }, [navigate, dispatch, success, order]);
 
@@ -88,7 +89,7 @@ export default function PlaceOrder() {
         ) : (
           <>
             {cart.cartItems.map((item, index) => (
-              <div>
+              <div key={index}>
                 <Link to={`/drinks/${item.product}`}>
                   {" "}
                   <img
@@ -98,14 +99,14 @@ export default function PlaceOrder() {
                   ></img>
                 </Link>
 
-                <p>
+                
                   <p style={{ color: "white" }}>{item.qty} </p>
                   <p style={{ color: "white" }}>price: {item.price} </p>
                   <p style={{ color: "white" }}>
                     {" "}
                     total price item: {item.price * item.qty}{" "}
                   </p>
-                </p>
+                
               </div>
             ))}
           </>

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import NavbarSecond from "../Navbar/NavbarSecond";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
 import { savePaymentMethod } from "../../Redux/Actions/cartActions";
-import Message from "../LoadingError/Error.js";
-import "./payment.css";
+import NavbarSecond from "../Navbar/NavbarSecond";
 import metamask from "./metamask.png";
+import "./payment.css";
+
 function Payment() {
   window.scrollTo(0, 0);
 
@@ -18,7 +19,7 @@ function Payment() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [alert,setAlert] = useState({ display: "none" })
+  const [alert, setAlert] = useState({ display: "none" });
   const [paymentMethod, setPaymentMethod] = useState("Paypal");
 
   const submitHandler = (e) => {
@@ -27,7 +28,7 @@ function Payment() {
       dispatch(savePaymentMethod(paymentMethod));
       navigate("/placeorder");
     } else {
-      setAlert({ display: "block" })
+      setAlert({ display: "block" });
     }
   };
   return (
@@ -37,10 +38,10 @@ function Payment() {
         <NavbarSecond />
 
         <div className="cryptoContainer">
-          <div class=" cryptocontainer">
-            <div class="contact-box">
-              <div class="left">
-                <div class="alert " role="alert" style={alert}>
+          <div className=" cryptocontainer">
+            <div className="contact-box">
+              <div className="left">
+                <div className="alert " role="alert" style={alert}>
                   Sorry, if you don't accept the method of payment, we can't let
                   you continue the order
                 </div>
@@ -59,11 +60,9 @@ function Payment() {
                       type="radio"
                       placeholder="Enter adress"
                       className="input"
-                      // required
                       onChange={() => {
                         setCheckedInput(true);
                       }}
-                      // onChange={(e) => setPaymentMethod(e.target.value)}
                     />
 
                     <label
@@ -76,11 +75,11 @@ function Payment() {
                       YES, I accept the payment in Ethereum
                     </label>
 
-                    <button class="btnContinue">Continue</button>
+                    <button className="btnContinue">Continue</button>
                   </form>
                 </div>
               </div>{" "}
-              <div class="right"> </div>
+              <div className="right"> </div>
             </div>
           </div>
         </div>

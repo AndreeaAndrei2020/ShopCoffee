@@ -8,14 +8,13 @@ GiftCardsRoute.get(
   "/",
   asyncHandler(async (req, res) => {
     const giftCardsRoute = await ModelGiftCards.find({});
-    res.json({giftCardsRoute}); ///aici trimit la frontend
+    res.json(giftCardsRoute); ///aici trimit la frontend
   })
 );
 GiftCardsRoute.get(
   "/:id",
   asyncHandler(async (req, res) => {
     const giftCardRoute = await ModelGiftCards.findById(req.params.id);
-    console.log("pro,",giftCardRoute)
     if (giftCardRoute) {
       res.json(giftCardRoute);
     }

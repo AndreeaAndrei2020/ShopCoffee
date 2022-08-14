@@ -7,6 +7,7 @@ const productModel = mongoose.Schema(
     description: { type: String, require: true },
     price: { type: Number, require: true },
     countInStock: { type: Number, require: true },
+    typeOfProduct :{ type: String, require: true },
   },
   { timestamps: true }
 );

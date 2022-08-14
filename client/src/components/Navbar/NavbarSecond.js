@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-
-import { Button } from "./Button.js";
-import restart from "./restartPng.png";
-import "./Navbar.css";
 import { useDispatch, useSelector } from "react-redux";
+
+import restart from "./restartPng.png";
 import { logout } from "../../Redux/Actions/userActions.js";
+import "./Navbar.css";
 
 function NavbarSecond() {
   const [clickedHambuerger, setClickedHambuerger] = useState(false);
@@ -18,7 +17,6 @@ function NavbarSecond() {
   const [clickedDropdownUser, setClickedDropdownUser] = useState(false);
 
   const productsLengths= useSelector((state) => state.cart).cartItems.length
-  console.log("cart",productsLengths)
   ///PT USER
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);

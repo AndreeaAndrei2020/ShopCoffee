@@ -12,7 +12,6 @@ const API_URL = process.env.REACT_APP_API_URL;
 //ADD TO CART
 export const addToCart =
   (id, qty,productName) => async (dispatch, getState) => {
-
     const { data } = await axios.get(`${API_URL}/api/${productName}/${id}`);
     dispatch({
       type: CART_ADD_ITEM,
@@ -23,6 +22,7 @@ export const addToCart =
         lastName: data.lastName,
         price: data.price,
         countInStock: data.countInStock,
+        typeOfProduct : productName,
         qty,
       },
     });

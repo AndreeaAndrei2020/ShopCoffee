@@ -152,3 +152,9 @@ form .field {
   background: rgb(168, 126, 70);
   color: white;
 }
+
+
+.alertRegister{
+  background-color: red!important;
+color: white !important;
+}

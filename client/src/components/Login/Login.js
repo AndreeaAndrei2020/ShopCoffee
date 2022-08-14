@@ -4,78 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import NavbarSecond from "../Navbar/NavbarSecond";
 import { login } from "../../Redux/Actions/userActions";
-import "./login.css";
+import NavbarSecond from "../Navbar/NavbarSecond";
 import Message from "../LoadingError/Error.js";
 import Loading from "../LoadingError/Loading.js";
-
-// function Login() {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const dispatch = useDispatch();
-
-//   const navigate = useNavigate();
-//   const { search } = useLocation();
-
-//   const redirect = search ? search.split("=")[1]:"/";
-
-//   const userLogin = useSelector((state) => state.userLogin);
-//   const { error, loading, userInfo } = userLogin;
-
-//   useEffect(() => {
-//     if (userInfo) {
-//       navigate(redirect);
-//     }
-//   }, [userInfo,navigate,redirect]);
-
-//   const submitHandler = (e) => {
-//     e.preventDefault();
-//    dispatch(login(email,password))
-//   };
-
-//   return (
-//     <div className="bodyLogin">
-//       <NavbarSecond />
-//       <div className="centerContainerLogin">
-//         <h1>Login</h1>
-
-//         {error && <Message variant="alert-danger">{error}</Message>}
-//         {loading && <Loading/>}
-
-//         <form  onSubmit={submitHandler}>
-//           <div className="txt_field">
-//             <input
-//               type="email"
-//               placeholder="Email"
-//               value={email}
-//               onChange={(e) => setEmail(e.target.value)}
-//             />
-//           </div>
-//           <div className="txt_field">
-//             <input
-//               type="password"
-//               placeholder="Password"
-//               value={password}
-//               onChange={(e) => setPassword(e.target.value)}
-//             />
-//           </div>
-//           <div className="txt_field">
-//             <button type="submit" style={{color: "white"}}>Login</button>
-//             <p>
-//               {" "}
-//               <Link
-//                 to={redirect ? `/register?redirect=${redirect}` : "/register"}
-//               >
-//                 Create Account
-//               </Link>
-//             </p>
-//           </div>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// }
+import "./login.css";
 
 function Login() {
   window.scrollTo(0,0);
@@ -108,10 +41,10 @@ function Login() {
         <div className="form login">
           <div className="form-content">
             <header>Login</header>
-            {error && <Message variant="alert-danger">{error}</Message>}
+            {error && <Message variant="alert-danger alertRegister">{error}</Message>}
             {loading && <Loading />}
             <form onSubmit={submitHandler}>
-              <div className="field input-field">
+              <div className="field input-field inputProfile">
                 <input
                   type="email"
                   placeholder="Email"
@@ -120,7 +53,7 @@ function Login() {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <div className="field input-field">
+              <div className="field input-field inputProfile">
                 <input
                   type="password"
                   placeholder="Password"
@@ -128,13 +61,12 @@ function Login() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                {/* <i class='bx bx-hide eye-icon'></i> */}
               </div>
               <div className="form-link">
                 <Link to="/"></Link>
               </div>
 
-              <div className="field button-field">
+              <div className="field button-field inputProfile">
                 <button className="btnLogin" type="submit">
                   Login
                 </button>

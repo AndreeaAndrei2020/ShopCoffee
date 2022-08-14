@@ -1,5 +1,4 @@
 export default function ErrorMessage({ message }) {
-  console.log("mes",message)
     if (!message) return null;
   
     return (

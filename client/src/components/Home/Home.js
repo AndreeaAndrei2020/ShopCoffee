@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import { MenuItems } from "./MenuItems";
-import "./Home.css";
 import Navbar from "../Navbar/Navbar";
-import Header from "../Navbar/Header";
+import "./Home.css";
 
 function Home() {
   return (

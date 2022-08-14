@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import NavbarSecond from "../Navbar/NavbarSecond";
-import { useDispatch, useSelector } from "react-redux";
-import "./shippingAdress.css";
 import { saveShippingAddress } from "../../Redux/Actions/cartActions";
+import "./shippingAdress.css";
 
 function ShippingScreen() {
   window.scrollTo(0, 0);
@@ -22,7 +22,6 @@ function ShippingScreen() {
 
   const nameUser = useSelector((state) => state.userLogin);
 
-  console.log(nameUser);
 
   const submitHandler = (e) => {
     e.preventDefault();

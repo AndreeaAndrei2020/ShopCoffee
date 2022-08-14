@@ -1,0 +1,27 @@
+.h1BaristaCourse {
+  text-align: center;
+  color: white;
+}
+.cointainerBaristaCourse {
+  margin: 20px;
+}
+
+.titleDrinkBaristaCourse {
+  position: relative;
+  color: white;
+  /* margin: 0 auto; */
+  width: 100%;
+  font-size: 18px;
+  top: 0%;
+}
+.titleDrinkBaristaCourse p {
+  padding: 5px;
+}
+
+.courseBaristaText {
+  color: black !important;
+  text-align: center;
+}
+.pro-container .titleBarista {
+  font-size: calc(1.275rem + 0.1vw) !important;
+}

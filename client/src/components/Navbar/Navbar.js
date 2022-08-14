@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-// import { Button } from "./Button.js";
-import restart from "./restartPng.png";
-import "./Navbar.css";
 import { useDispatch, useSelector } from "react-redux";
+
+import restart from "./restartPng.png";
 import { logout } from "../../Redux/Actions/userActions";
+import "./Navbar.css";
 
 function Navbar() {
   const [clickedHambuerger, setClickedHambuerger] = useState(false);
@@ -72,7 +72,7 @@ function Navbar() {
   function handleClickHamburger() {
     setClickedHambuerger(!clickedHambuerger);
   }
-  const productsLengths= useSelector((state) => state.cart).cartItems.length
+  const productsLengths = useSelector((state) => state.cart).cartItems.length;
   return (
     <div>
       <div className="line">
@@ -153,95 +153,47 @@ function Navbar() {
                   </>
                 ) : (
                   <>
-                   <div className={styleDropdownUser}>
-                    <Link to="/login" className="linkDropdown">
-                      Login
-                    </Link>
-                    <Link
-                      to="/register"
-                      className="linkDropdown"
-                      onClick={logoutHandler}
-                    >
-                      Register
-                    </Link>
+                    <div className={styleDropdownUser}>
+                      <Link to="/login" className="linkDropdown">
+                        Login
+                      </Link>
+                      <Link
+                        to="/register"
+                        className="linkDropdown"
+                        onClick={logoutHandler}
+                      >
+                        Register
+                      </Link>
                     </div>
                   </>
                 )}
-                
               </div>
             </li>
-            {/* <li
-                class="nav-item me-3 me-lg-1"
-                style={{ color: "white",paddingTop: '7px' ,paddingBottom:'10px'}}
-              >
-                <Link
-                  to="/cart"  className="linkDropdown"
-                >
-                  <span>
-                    <i
-                      class="fas fa-shopping-bag fa-lg"
-                      style={{ color: "white", textAling: "center",marginTop:'5px' }}
-                    ></i>
-                  </span>
-                  <span class="badge rounded-pill badge-notification bg-danger">
-                    2
-                  </span>
-                </Link>
-              </li> */}
 
-              <li className="linkNavbar"   style={{ color: "white",paddingTop: '7px' ,paddingBottom:'10px'}}>
+            <li
+              className="linkNavbar"
+              style={{
+                color: "white",
+                paddingTop: "7px",
+                paddingBottom: "10px",
+              }}
+            >
               <Link to="/cart">
-              <span >
-                    <i
-                      class="fas fa-shopping-bag fa-lg"
-                      style={{ color: "white", textAling: "center",marginTop:'5px' }} 
-                    ></i>
-                  </span>
-                  <span class="badge rounded-pill badge-notification bg-danger">
-                    {productsLengths}
-                  </span>
+                <span>
+                  <i
+                    className="fas fa-shopping-bag fa-lg"
+                    style={{
+                      color: "white",
+                      textAling: "center",
+                      marginTop: "5px",
+                    }}
+                  ></i>
+                </span>
+                <span className="badge rounded-pill badge-notification bg-danger">
+                  {productsLengths}
+                </span>
               </Link>
             </li>
-
-
-
-            {/* NEATINS
-            <li className="user">
-              <Link to="Sing up" className="linkNavbar">
-                <p className="nav-links">
-                  <i className="fas fa-user-alt"></i>
-                </p>
-              </Link>
-            </li> */}
-
-            {/* {userInfo ? (
-              <li className="user">
-                <div className="dropdown" onClick={functionClickedDropdown}>
-                  <Link style={{ color: "white" }} to="/profile">
-                    Profile
-                  </Link>
-                  <Link
-                    style={{ color: "white" }}
-                    to="/"
-                    onClick={logoutHandler}
-                  >
-                    Logout
-                  </Link>
-                </div>
-              </li>
-            ) : (
-              <>
-                <p>
-                  <Link style={{ color: "white" }} to="/login">
-                    Login
-                  </Link>
-                </p>
-                <Link style={{ color: "white" }} to="/register">
-                  Register
-                </Link>
-              </>
-            )}
-          */}
           </ul>
         </nav>
         <div className="centered">

@@ -8,7 +8,7 @@ const schemaDrinks = require("./Models/ProductModel.js");
 const coffeeDrinks = require("./data/DrinksCoffee.js");
 const cocktailsDrinks = require("./data/DrinksCocktails.js");
 
-const food = require("./data/Sweets.js");
+const food = require("./data/Food.js");
 const SchemaFood = require("./Models/foodModel.js");
 
 const User = require('./Models/UserModel.js');

@@ -7,21 +7,18 @@ function Footer() {
         <div className="footer-content">
           <h3>Restart</h3>
           <p>
-          Our attention is focused on one dream: to develop the field of specialty coffee in Romania, to explore its potential in taste, following its entire path: from the farm, to the bakery and in the cup. We enjoy nothing more than your curiosity about coffee. We are here to answer all your questions, click to get in touch.
+          Restart is a community of creative, open people who share experiences and life stories, while carefully preparing all the details for a specialty coffee. Order now or come to us!
           </p>
           <div className="footer-menu">
             <ul className="f-menu">
               <li>
-                <a href="/#">Home</a>
+                <a href="/">Home</a>
               </li>
               <li>
-                <a href="/#">Contact</a>
+                <a href="/contact">Contact</a>
               </li>
               <li>
-                <a href="/#">Delivery</a>
-              </li>
-              <li>
-                <a href="/#">Blog</a>
+                <a href="/delivery">Delivery</a>
               </li>
               <li>
                 <a href="/#">Info</a>

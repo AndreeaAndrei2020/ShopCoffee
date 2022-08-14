@@ -124,4 +124,29 @@ margin: 0 auto !important;
   margin:  0px !important;
   padding-top: 5px !important;
 }
+.cartEmpty{
+  background-color: black !important ;
+  height: 100vh !important;
+  
+}
+.textCartIsEmpty{
+  /* background-color: rgb(168, 126, 70) !important;
+   */
+  color: white !important;
+   padding: 30px !important;
+  text-align: center !important;
+  width: 50% !important;
+  margin: 0 auto !important;
+  border-radius: 20px !important;
+  font-weight: bold;
+  margin-top: 10% !important;
+}
+.btnBackToShopping{
+  background-color: rgb(168, 126, 70) !important;
+  color:  white !important;
+}
+.btnBackToShopping:hover{
+  background-color: white !important;
+  color:  rgb(168, 126, 70) !important;
+}
 
