@@ -7,10 +7,7 @@
     justify-content: center;
     align-items: center;
 }
-.gradient-custom {
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
-    }
-    
+
     .card-custom {
     border-bottom-left-radius: 10% 50%;
     border-top-left-radius: 10% 50%;
@@ -50,9 +47,7 @@
     } */
     /* .containerShipping{margin: 10px !important;} */
 
-    .gradient-custom {
-        background: -webkit-linear-gradient(left, #3931af, #00c6ff);
-        }
+    
         
         .card-custom {
         border-bottom-left-radius: 10% 50%;

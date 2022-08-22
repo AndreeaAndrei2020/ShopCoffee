@@ -8,6 +8,7 @@ import {
   USER_LOGIN_SUCCESS,
   USER_LOGOUT,
   USER_REGISTER_FAIL,
+  USER_REGISTER_LOGOUT,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
   USER_UPDATE_PROFILE_FAIL,
@@ -15,6 +16,7 @@ import {
   USER_UPDATE_PROFILE_SUCCESS,
 } from "../Constants/UserConstants";
 import axios from "axios";
+import { ORDER_LIST_MY_REQUEST, ORDER_LIST_MY_RESET } from "../Constants/OrderConstants";
 const API_URL = process.env.REACT_APP_API_URL;
 
 // LOGIN
@@ -29,7 +31,7 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `${API_URL}/api/users/login`,
+      `${API_URL}/api/users/login?`,
       {
         email,
         password,
@@ -56,8 +58,8 @@ export const logout = () => async (dispatch) => {
   localStorage.removeItem("userInfo");
   dispatch({ type: USER_LOGOUT });
   dispatch({ type: USER_DETAILS_RESET });
-  //optional
-  // document.location.href = "/login";
+  dispatch({ type: USER_REGISTER_LOGOUT });
+  dispatch({ type: ORDER_LIST_MY_RESET });
 };
 
 // REGISTER
@@ -77,8 +79,9 @@ export const register =
         { name, lastName, email, password },
         config
       );
+
       dispatch({ type: USER_REGISTER_SUCCESS, payload: data }); //userRoutes , email.id..
-      dispatch({ type: USER_LOGIN_SUCCESS, payload: data }); //userRoutes , email.id..
+      dispatch({ type: USER_LOGIN_SUCCESS, payload: data }); // logam automat user ul
 
       localStorage.setItem("userInfo", JSON.stringify(data));
     } catch (error) {
@@ -108,7 +111,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`${API_URL}/api/users/${id}`, config);
+    const { data } = await axios.get(`${API_URL}/api/users/${id}`, config); ///.get trimite o solicitare get la adresa URL specificată.
 
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data }); //userRoutes , email.id..
   } catch (error) {

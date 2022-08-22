@@ -24,7 +24,7 @@ function GiftCards() {
   return (
     <div>
       <NavbarSecond />
-      <h2 className="h2Menu">Food</h2>
+      <h2 className="h2Menu">Gift cards</h2>
       <div className="pro-container">
         {loading ? (
           <Loading />
@@ -38,7 +38,7 @@ function GiftCards() {
                   <Link to={`/giftCards/${item._id}`}>
                     <div className="titleDrink">
                       <h3>{item.name}</h3>
-                      <p>{item.price} ron</p>
+                      <p>{item.price}.00  euro</p>
                     </div>
                     <div className="containerPhoto">
                       <img src={`${API_URL}${item.image}`} alt={item.name} />

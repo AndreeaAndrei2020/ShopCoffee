@@ -64,7 +64,7 @@ function GiftCard() {
 
                 <div className="col2">
                   <h1>{gift.name}</h1>
-                  <h4>- {gift.price} ron -</h4>
+                  <h4>- {gift.price}.00  euro -</h4>
                   {gift.countInStock > 0 ? (
                     <p className="description">Status : Available</p>
                   ) : (

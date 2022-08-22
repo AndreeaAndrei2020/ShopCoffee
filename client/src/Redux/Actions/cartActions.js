@@ -32,13 +32,13 @@ export const addToCart =
     );
   };
 
-//REMOVE PRODUCT FROM CART
+//REMOVE DRINK FROM CART
 export const removefromcart = (id) => (dispatch, getState) => {
   dispatch({
     type: CART_REMOVE_ITEM,
     payload: id,
   });
-  localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
+  localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));   ///dupa ce am bagat in store cart Items curent, adaugam si in localStorage .
 };
 
 //SAVE SHIPPING ADDRESS

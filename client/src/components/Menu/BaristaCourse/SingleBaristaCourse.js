@@ -37,7 +37,7 @@ const SingleBaristaCourse = () => {
   };
 
   return (
-    <div>
+    <div style={{height:'100vh'}}>
       <NavbarSecond />
       {banner ? (
         <div
@@ -71,7 +71,7 @@ const SingleBaristaCourse = () => {
                 <div className="col2">
                   <h1>{course.name}</h1>
                   <p className="description">{course.description}</p>
-                  <h4>- {course.price} ron -</h4>
+                  <h4>- {course.price}.00  euro -</h4>
                  {course.countInStock > 0 ? (
                     <p className="description">Status : Available</p>
                   ) : (

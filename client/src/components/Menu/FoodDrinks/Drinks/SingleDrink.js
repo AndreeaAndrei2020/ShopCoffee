@@ -22,11 +22,12 @@ const SingleDrink = () => {
   const { id } = useParams();
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
-  const productDetails = useSelector((state) => state.productDetails);
+  const drinkDetails = useSelector((state) => state.drinkDetails);
  
-  const { loading, error, product } = productDetails;
-  const typeOfProduct = product.typeOfProduct;
-  const [banner, setBanner] = useState(false);
+  const { loading, error, drink } = drinkDetails;
+  console.log("drink",drink)
+  const typeOfProduct = drink.typeOfProduct;
+  const [bannerAddedToCart, setBannerAddedToCart] = useState(false);
 
   useEffect(() => {
     dispatch(listProductDetails(id));
@@ -34,28 +35,27 @@ const SingleDrink = () => {
 
   const AddToCartHAndle = (e) => {
     e.preventDefault();
-    // navigate(`/cart/${id}?qty=${qty}`);
     dispatch(addToCart(id, qty,typeOfProduct));
-    setBanner(true);
+    setBannerAddedToCart(true);
   };
 
   return (
     <div>
       <NavbarSecond />
-      {banner ? (
+      {bannerAddedToCart ? (
         <div
           className="alert alert-dark banner"
           role="alert"
           style={{ color: "white" }}
         >
           <h5>
-            {qty}x {product.name} was added to cart{" "}
+            {qty}x {drink.name} was added to cart{" "}
           </h5>
         </div>
       ) : (
         ""
       )}
-      <div className="singleDrinkComponent">
+      <div className="singleDrinkComponent" style={{height:"100vh"}}>
         {loading ? (
           <Loading />
         ) : error ? (
@@ -66,22 +66,22 @@ const SingleDrink = () => {
               <div className="row">
                 <div className="col2">
                   <img
-                    src={`${API_URL}${product.image}`}
-                    alt={product.name}
+                    src={`${API_URL}${drink.image}`}
+                    alt={drink.name}
                   ></img>
                 </div>
 
                 <div className="col2">
-                  <h1>{product.name}</h1>
-                  {/* <p className="description">{product.description}</p> */}
-                  <h4>- {product.price} ron -</h4>
-                  {product.countInStock > 0 ? (
+                  <h1>{drink.name}</h1>
+                  {/* <p className="description">{drink.description}</p> */}
+                  <h4>- {drink.price}.00  euro -</h4>
+                  {drink.countInStock > 0 ? (
                     <p className="description">Status : Available</p>
                   ) : (
                     <p className="description"> Status: UNAVAILABLE </p>
                   )}
 
-                  {product.countInStock > 0 ? (
+                  {drink.countInStock > 0 ? (
                     <>
                       <div className="divDetails">
                         <select
@@ -89,7 +89,7 @@ const SingleDrink = () => {
                           onChange={(e) => setQty(e.target.value)}
                           className="selectSingleDrink"
                         >
-                          {[...Array(product.countInStock).keys()].map((x) => (
+                          {[...Array(drink.countInStock).keys()].map((x) => (
                             <option
                               key={x + 1}
                               value={x + 1}

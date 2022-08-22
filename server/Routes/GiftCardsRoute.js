@@ -8,7 +8,7 @@ GiftCardsRoute.get(
   "/",
   asyncHandler(async (req, res) => {
     const giftCardsRoute = await ModelGiftCards.find({});
-    res.json(giftCardsRoute); ///aici trimit la frontend
+    res.json(giftCardsRoute);
   })
 );
 GiftCardsRoute.get(

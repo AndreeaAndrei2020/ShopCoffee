@@ -139,7 +139,13 @@ function NavbarSecond() {
                     {" "}
                     <div className={styleDropdownUser}>
                       <Link to="/profile" className="linkDropdown">
-                        Profile
+                     Reset your password
+                      </Link>
+                      <Link
+                        to="/ordersuser"
+                        className="linkDropdown"
+                      >
+                     See your orders
                       </Link>
                       <Link
                         to="/"

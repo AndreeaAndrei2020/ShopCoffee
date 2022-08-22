@@ -55,12 +55,9 @@ function OrderScreen() {
     }
   }, [dispatch, orderId, successPay, order]);
 
-  const successPaymentHandler = (paymentResult) => {
-    dispatch(payOrder(orderId, paymentResult));
-  };
-
+  
   return (
-    <div>
+    <div style={{ height: "100vh"}}>
       <NavbarSecond />
       {loading ? (
         <Loading />
@@ -72,89 +69,14 @@ function OrderScreen() {
           <br></br>
           <br></br>
 
-          <p style={{ color: "white" }}>{order.user.name}</p>
-          <a href={`mailto:$${order.user.email}`} style={{ color: "white" }}>
-            {order.user.email}
-          </a>
-          <p style={{ color: "white" }}>{order.shippingAddress.country}</p>
-          <p style={{ color: "white" }}>{order.paymentMethod}</p>
-          {/* 
-          {order.isPaid ? (
-            <div>
-              <p style={{ color: "white" }}>
-                {moment(order.paidAt).calendar()}
-              </p>
-            </div>
-          ) : (
-            <div>
-              <p style={{ color: "white" }}>NOT PAID</p>
-            </div>
-          )} */}
-
-          {/* {order.orderItems.length === 0 ? (
-            <div>
-              <Message variant="alert-info mt-5">
-                {" "}
-                <p style={{ color: "white" }}>Your order is empty</p>
-              </Message>
-            </div>
-          ) : (
-            <div>
-              <p style={{ color: "white" }}>
-                {order.orderItems.map((item, index) => {
-                  return (
-                    <div>
-                      <div>
-                        <Link to={`/drinks/${item.product}`}>
-                          {" "}
-                          <img
-                            style={{ width: "50px" }}
-                            alt={item.name}
-                            src={`${API_URL}${item.name}`}
-                          ></img>
-                        </Link>
-
-                        <p>
-                          <p style={{ color: "white" }}>{item.qty} </p>
-                          <p style={{ color: "white" }}>price: {item.price} </p>
-                          <p style={{ color: "white" }}>
-                            {" "}
-                            total price item: {item.price * item.qty}{" "}
-                          </p>
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </p>
-            </div>
-          )} */}
-
-          {/* {order.isDelivered ? (
-            <div>
-              <p style={{ color: "white" }}>
-                Delivered on {moment(order.deliveredAt).calendar()}
-              </p>
-            </div>
-          ) : (
-            <div>
-              <p style={{ color: "white" }}>NOT DELIVERED</p>
-            </div>
-          )}
-          <p style={{ color: "white" }}>{order.totalPrice}</p>
-
-          {!order.isPaid && (
-            <div>
-              {loadingPay && <Loading />}
-              {!sdkReady ? (
-                <Loading />
-              ) : (
-                <PayPalButton amount={1} onSuccess={successPaymentHandler} />
-              )}
-            </div>
-          )} */}
+     
         </>
       )}
+
+
+
+
+
     </div>
   );
 }

@@ -24,28 +24,26 @@ import {
   GIFT_LIST_FAIL,
   GIFT_LIST_REQUEST,
   GIFT_LIST_SUCCESS,
-  PRODUCT_DETAILS_FAIL,
-  PRODUCT_DETAILS_REQUEST,
-  PRODUCT_DETAILS_SUCCESS,
-  PRODUCT_LIST_FAIL,
-  PRODUCT_LIST_REQUEST,
-  PRODUCT_LIST_SUCCESS,
+  DRINK_DETAILS_FAIL,
+  DRINK_DETAILS_REQUEST,
+  DRINK_DETAILS_SUCCESS,
+  DRINK_LIST_FAIL,
+  DRINK_LIST_REQUEST,
+  DRINK_LIST_SUCCESS,
 } from "../Constants/ProductConstants";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
-// PRODUCT LIST
+// DRINK LIST
 export const listProduct = () => async (dispatch) => {
   try {
-    dispatch({ type: PRODUCT_LIST_REQUEST });
+    dispatch({ type: DRINK_LIST_REQUEST });
     const { data } = await axios.get(`${API_URL}/api/drinks`);
-
-    dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
-
+    dispatch({ type: DRINK_LIST_SUCCESS, payload: data });
   } catch (error) {
-    console.log("error" ,error)
+    console.log("error", error);
     dispatch({
-      type: PRODUCT_LIST_FAIL,
+      type: DRINK_LIST_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
@@ -54,17 +52,16 @@ export const listProduct = () => async (dispatch) => {
   }
 };
 
-
-// SINGLE PRODUCT
+// SINGLE DRINK
 export const listProductDetails = (id) => async (dispatch) => {
   try {
-    dispatch({ type: PRODUCT_DETAILS_REQUEST });
+    dispatch({ type: DRINK_DETAILS_REQUEST });
     const { data } = await axios.get(`${API_URL}/api/drinks/${id}`);
-    dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
+    dispatch({ type: DRINK_DETAILS_SUCCESS, payload: data });
   } catch (error) {
-    console.log("error" ,error)
+    console.log("error", error);
     dispatch({
-      type: PRODUCT_DETAILS_FAIL,
+      type: DRINK_DETAILS_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
@@ -73,18 +70,16 @@ export const listProductDetails = (id) => async (dispatch) => {
   }
 };
 
-
-// FOOOOOOOOOOOOOOOOOOOD 
-// PRODUCT LIST
+// FOOOOOOOOOOOOOOOOOOOD
+// DRINK LIST
 export const listFood = () => async (dispatch) => {
   try {
     dispatch({ type: FOOD_LIST_REQUEST });
     const { data } = await axios.get(`${API_URL}/api/food`);
 
     dispatch({ type: FOOD_LIST_SUCCESS, payload: data });
-
   } catch (error) {
-    console.log("error" ,error)
+    console.log("error", error);
     dispatch({
       type: FOOD_LIST_FAIL,
       payload:
@@ -102,9 +97,8 @@ export const listCourses = () => async (dispatch) => {
     const { data } = await axios.get(`${API_URL}/api/baristaCourses`);
 
     dispatch({ type: COURSES_LIST_SUCCESS, payload: data });
-
   } catch (error) {
-    console.log("error" ,error)
+    console.log("error", error);
     dispatch({
       type: COURSES_LIST_FAIL,
       payload:
@@ -115,8 +109,6 @@ export const listCourses = () => async (dispatch) => {
   }
 };
 
-
-
 // GIIIIFT
 // GIFT CARD LIST
 export const listGiftCards = () => async (dispatch) => {
@@ -124,9 +116,8 @@ export const listGiftCards = () => async (dispatch) => {
     dispatch({ type: GIFT_LIST_REQUEST });
     const { data } = await axios.get(`${API_URL}/api/giftCards`);
     dispatch({ type: GIFT_LIST_SUCCESS, payload: data });
-
   } catch (error) {
-    console.log("error" ,error)
+    console.log("error", error);
     dispatch({
       type: GIFT_LIST_FAIL,
       payload:
@@ -137,10 +128,6 @@ export const listGiftCards = () => async (dispatch) => {
   }
 };
 
-
-
-
-
 // SINGLE FOOD
 export const listFoodDetails = (id) => async (dispatch) => {
   try {
@@ -148,7 +135,7 @@ export const listFoodDetails = (id) => async (dispatch) => {
     const { data } = await axios.get(`${API_URL}/api/food/${id}`);
     dispatch({ type: FOOD_DETAILS_SUCCESS, payload: data });
   } catch (error) {
-    console.log("error" ,error)
+    console.log("error", error);
     dispatch({
       type: FOOD_DETAILS_FAIL,
       payload:
@@ -159,7 +146,6 @@ export const listFoodDetails = (id) => async (dispatch) => {
   }
 };
 
-
 // SINGLE GIFT
 export const listGiftDetails = (id) => async (dispatch) => {
   try {
@@ -167,7 +153,7 @@ export const listGiftDetails = (id) => async (dispatch) => {
     const { data } = await axios.get(`${API_URL}/api/giftCards/${id}`);
     dispatch({ type: GIFT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
-    console.log("error" ,error)
+    console.log("error", error);
     dispatch({
       type: GIFT_DETAILS_FAIL,
       payload:
@@ -178,7 +164,6 @@ export const listGiftDetails = (id) => async (dispatch) => {
   }
 };
 
-
 // SINGLE baristaCourses
 export const listCoursesDetails = (id) => async (dispatch) => {
   try {
@@ -186,7 +171,7 @@ export const listCoursesDetails = (id) => async (dispatch) => {
     const { data } = await axios.get(`${API_URL}/api/baristaCourses/${id}`);
     dispatch({ type: COURSES_DETAILS_SUCCESS, payload: data });
   } catch (error) {
-    console.log("error" ,error)
+    console.log("error", error);
     dispatch({
       type: COURSES_DETAILS_FAIL,
       payload:
@@ -197,7 +182,6 @@ export const listCoursesDetails = (id) => async (dispatch) => {
   }
 };
 
-
 // SINGLE EQUIPMENT
 export const listEquipmentDetails = (id) => async (dispatch) => {
   try {
@@ -205,7 +189,7 @@ export const listEquipmentDetails = (id) => async (dispatch) => {
     const { data } = await axios.get(`${API_URL}/api/equipment/${id}`);
     dispatch({ type: EQUIPMENT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
-    console.log("error" ,error)
+    console.log("error", error);
     dispatch({
       type: EQUIPMENT_DETAILS_FAIL,
       payload:
@@ -216,8 +200,6 @@ export const listEquipmentDetails = (id) => async (dispatch) => {
   }
 };
 
-
-
 // EQUIPMENT LIST
 export const listEquipment = () => async (dispatch) => {
   try {
@@ -225,9 +207,8 @@ export const listEquipment = () => async (dispatch) => {
     const { data } = await axios.get(`${API_URL}/api/equipment`);
 
     dispatch({ type: EQUIPMENT_LIST_SUCCESS, payload: data });
-
   } catch (error) {
-    console.log("error" ,error)
+    console.log("error", error);
     dispatch({
       type: EQUIPMENT_LIST_FAIL,
       payload:
@@ -237,4 +218,3 @@ export const listEquipment = () => async (dispatch) => {
     });
   }
 };
-

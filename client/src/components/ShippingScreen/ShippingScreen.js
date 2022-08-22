@@ -11,31 +11,30 @@ function ShippingScreen() {
 
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
-
   const [adress, setAddress] = useState(shippingAddress.adress);
-  const [city, setCity] = useState(shippingAddress.city);
   const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
-  const [country, setCountry] = useState(shippingAddress.country);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const nameUser = useSelector((state) => state.userLogin);
 
-
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(saveShippingAddress({ adress, city, postalCode, country }));
+    dispatch(saveShippingAddress({ adress, postalCode }));
     navigate("/payment");
   };
 
   return (
-    <div>
+    <div style={{ height: "100vh" }}>
       {" "}
       <div>
         <NavbarSecond />
 
-        <div className="row mt-3 mx-3 containerShipping">
+        <div
+          className="row mt-3 mx-3 containerShipping"
+          style={{ paddingTop: "100px", marginLeft: "10px" }}
+        >
           <div className="col-md-3">
             <div
               style={{ marginTop: "50px", marginLeft: "10px" }}
@@ -65,41 +64,7 @@ function ShippingScreen() {
                 </div>
 
                 <form className="mb-0" onSubmit={submitHandler}>
-                  <div className="row mb-4"></div>
-                  <div className="row mb-4">
-                    <div className="col">
-                      <div className="form-outline">
-                        {" "}
-                        <label className="" htmlFor="form9Example3">
-                          Country
-                        </label>
-                        <input
-                          type="text"
-                          id="form9Example3"
-                          className="form-control input-custom"
-                          required
-                          value={country}
-                          onChange={(e) => setCountry(e.target.value)}
-                        />
-                      </div>
-                    </div>
-                    <div className="col">
-                      <div className="form-outline">
-                        {" "}
-                        <label className="" htmlFor="form9Example4">
-                          Postal Code
-                        </label>
-                        <input
-                          type="text"
-                          id="form9Example4"
-                          className="form-control input-custom"
-                          required
-                          value={postalCode}
-                          onChange={(e) => setPostalCode(e.target.value)}
-                        />
-                      </div>
-                    </div>
-                  </div>
+                 
                   <div className="row mb-4">
                     <div className="col">
                       <div className="form-outline">
@@ -116,18 +81,21 @@ function ShippingScreen() {
                         />
                       </div>
                     </div>
+                  </div>
+                  <div className="row mb-4">
                     <div className="col">
                       <div className="form-outline">
-                        <label className="" htmlFor="typeEmail">
-                          City
+                        {" "}
+                        <label className="" htmlFor="form9Example4">
+                          Postal Code
                         </label>
                         <input
                           type="text"
-                          id="typeEmail"
+                          id="form9Example4"
                           className="form-control input-custom"
                           required
-                          value={city}
-                          onChange={(e) => setCity(e.target.value)}
+                          value={postalCode}
+                          onChange={(e) => setPostalCode(e.target.value)}
                         />
                       </div>
                     </div>

@@ -9,7 +9,6 @@ import BaristaCourse from "./components/Menu/BaristaCourse/BaristaCourse.js";
 import CartScreen from "./components/CartScreen/CartScreen.js";
 import GiftCards from "./components/Menu/GiftCards/GiftCards.js";
 import GiftCard from "./components/Menu/GiftCards/GiftCard.js";
-import Login from "./components/Login/Login";
 import ShippingScreen from "./components/ShippingScreen/ShippingScreen";
 import Payment from "./components/Payment/Payment";
 import PlaceOrder from "./components/PlaceOrder/PlaceOrder";
@@ -24,6 +23,9 @@ import Profile from "./components/User/Profile/Profile";
 import Equipment from './components/Menu/Equipment/Equipment.js'
 import SingleEquipment from './components/Menu/Equipment/SingleEquipment.js';
 import "./App.css";
+import Login from "./components/User/Login/Login";
+import Page404 from "./components/Page404";
+import OrdersUser from "./components/User/Profile/OrdersUser";
 
 function App() {
   return (
@@ -52,6 +54,8 @@ function App() {
           <Route path="/placeorder" element={<PlaceOrder />} />
           <Route path="/delivery" element={<Delivery />} />
           <Route path="/orders/:id" element={<OrderScreen />} />
+          <Route path="*" element={<Page404/>} />
+          <Route path= "/ordersUser" element={<OrdersUser/>} />
         </Routes>
         <Footer />
       </Router>{" "}

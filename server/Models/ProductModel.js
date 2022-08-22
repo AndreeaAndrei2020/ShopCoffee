@@ -12,4 +12,4 @@ const productModel = mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Product", productModel);
+module.exports = mongoose.model("drinks", productModel);

@@ -11,7 +11,7 @@ function Menu() {
   return (
     <div>
       <NavbarSecond/>
-    <div className="containerChooseMenu">
+    <div className="containerChooseMenu" style={{height:'100vh'}}>
       <div className="divHomeMenuitems">
         <div className="columnHomeMenuItems divMenu" >
           <Link to="/food">

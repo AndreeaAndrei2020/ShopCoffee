@@ -20,9 +20,7 @@ function Footer() {
               <li>
                 <a href="/delivery">Delivery</a>
               </li>
-              <li>
-                <a href="/#">Info</a>
-              </li>
+             
             </ul>
           </div>
 

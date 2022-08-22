@@ -16,7 +16,6 @@ import { listEquipment } from "../../../Redux/Actions/ProductActions";
 const API_URL = process.env.REACT_APP_API_URL;
 
 function HomeEquipment() {
-
   const dispatch = useDispatch();
   const equipmentList = useSelector((state) => state.equipmentList);
   const { loading, error, equipment } = equipmentList;
@@ -26,33 +25,35 @@ function HomeEquipment() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div style={{height:'100vh'}}>
       <NavbarSecond />
-      <h2 className="h2Menu">Home Equipments</h2>
-      <div className="pro-container">
-        {loading ? (
-          <Loading />
-        ) : error ? (
-          <Message variant="alert-danger">{error}</Message>
-        ) : (
-          <>
-            {equipment.map((item, index) => {
-              return (
-                <div className="pro" key={index}>
-                  <Link to={`/equipment/${item._id}`}>
-                    <div className="titleDrink">
-                      <h3>{item.name}</h3>
-                      <p>{item.price} ron</p>
-                    </div>
-                    <div className="containerPhoto">
-                      <img src={`${API_URL}${item.image}`} alt={item.name} />
-                    </div>
-                  </Link>
-                </div>
-              );
-            })}
-          </>
-        )}
+      <div >
+        <h2 className="h2Menu">Home Equipments</h2>
+        <div className="pro-container" >
+          {loading ? (
+            <Loading />
+          ) : error ? (
+            <Message variant="alert-danger">{error}</Message>
+          ) : (
+            <>
+              {equipment.map((item, index) => {
+                return (
+                  <div className="pro" key={index}>
+                    <Link to={`/equipment/${item._id}`}>
+                      <div className="titleDrink">
+                        <h3>{item.name}</h3>
+                        <p>{item.price}.00 euro</p>
+                      </div>
+                      <div className="containerPhoto">
+                        <img src={`${API_URL}${item.image}`} alt={item.name} />
+                      </div>
+                    </Link>
+                  </div>
+                );
+              })}
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -27,7 +27,7 @@ const SingleEquipment = () => {
   }, [dispatch, id]);
 
   return (
-    <div>
+    <div style={{height:'100vh'}}>
       <NavbarSecond />
      
       <div className="singleDrinkComponent">
@@ -37,7 +37,7 @@ const SingleEquipment = () => {
           <Message variant="alert-danger">{error}</Message>
         ) : (
           <>
-            <div className="small-container single-product">
+            <div className="small-container single-product" style={{paddingTop:'120px'}}>
               <div className="row">
                 <div className="col2">
                   <img
@@ -49,7 +49,7 @@ const SingleEquipment = () => {
                 <div className="col2">
                   <h1>{equipment.name}</h1>
                   <p className="description">{equipment.description}</p>
-                  <h4>- {equipment.price} ron -</h4>
+                  <h4>- {equipment.price}.00  euro -</h4>
                   <p className="descriptionPayment">
                     PAYMENT AND COLLECTION OF THIS DEVICE IS MADE STRICTLY AT
                     OUR CAFE !

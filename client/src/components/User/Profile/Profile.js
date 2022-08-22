@@ -15,7 +15,7 @@ import "./profile.css";
 function Profile() {
   ///profile tabs
   const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("LET S GO");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -33,6 +33,7 @@ function Profile() {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+
 
   ///profile tabs
   const userDetails = useSelector((state) => state.userDetails);
@@ -52,8 +53,13 @@ function Profile() {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    if (password.length < 8) {
+      if (!toast.isActive(toastId.current))
+        toastId.current = toast.error("Password too short", Toastobjects);
+    }
+
     //password match
-    if (password !== confirmPassword) {
+    else if (password !== confirmPassword) {
       if (!toast.isActive(toastId.current)) {
         toastId.current = toast.error("Password does not match", Toastobjects); ///sa nu apara Error decat o data cand apas de mai multe ori pe buton
       }
@@ -140,6 +146,8 @@ function Profile() {
                     placeholder=" Confirm Password"
                     className="password"
                     value={confirmPassword}
+                    required
+
                     onChange={(e) => setConfirmPassword(e.target.value)}
                   />
                 </div>

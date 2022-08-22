@@ -139,8 +139,15 @@ function Navbar() {
                   <>
                     {" "}
                     <div className={styleDropdownUser}>
-                      <Link to="/profile" className="linkDropdown">
-                        Profile
+                      
+                    <Link to="/profile" className="linkDropdown">
+                     Reset your password
+                      </Link>
+                      <Link
+                        to="/ordersUser"
+                        className="linkDropdown"
+                      >
+                     See your orders
                       </Link>
                       <Link
                         to="/"

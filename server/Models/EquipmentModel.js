@@ -17,4 +17,4 @@ const equipmentModel = mongoose.Schema(
 // module.exports = mongoose.model("Equipment", equipmentModel);
 
 module.exports =
-  mongoose.models.Equipment || mongoose.model("Equipment", equipmentModel);
+  mongoose.models.Equipments || mongoose.model("Equipments", equipmentModel);

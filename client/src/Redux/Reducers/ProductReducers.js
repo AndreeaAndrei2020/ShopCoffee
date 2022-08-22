@@ -1,10 +1,10 @@
 import {
-  PRODUCT_LIST_FAIL,
-  PRODUCT_LIST_REQUEST,
-  PRODUCT_LIST_SUCCESS,
-  PRODUCT_DETAILS_REQUEST,
-  PRODUCT_DETAILS_SUCCESS,
-  PRODUCT_DETAILS_FAIL,
+  DRINK_LIST_FAIL,
+  DRINK_LIST_REQUEST,
+  DRINK_LIST_SUCCESS,
+  DRINK_DETAILS_REQUEST,
+  DRINK_DETAILS_SUCCESS,
+  DRINK_DETAILS_FAIL,
   FOOD_LIST_REQUEST,
   FOOD_LIST_SUCCESS,
   FOOD_LIST_FAIL,
@@ -32,14 +32,14 @@ import {
 } from "../Constants/ProductConstants";
 
 
-//PRODUCT LIST
-export const productListReducer = (state = { products:[] }, action) => {
+//DRINKS LIST
+export const productListReducer = (state = { drinks:[] }, action) => {
   switch (action.type) {
-    case PRODUCT_LIST_REQUEST:
-      return { loading: true, products: [] };
-    case PRODUCT_LIST_SUCCESS:
-      return { loading: false, products: action.payload };
-    case PRODUCT_LIST_FAIL:
+    case DRINK_LIST_REQUEST:
+      return { loading: true, drinks: [] };
+    case DRINK_LIST_SUCCESS:
+      return { loading: false, drinks: action.payload };
+    case DRINK_LIST_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;
@@ -105,14 +105,14 @@ export const equipmentListReducer = (state = { equipment:[] }, action) => {
   }
 };
 
-//SINGLE PRODUCT 
-export const productDetailsReducer = (state = { product: [] }, action) => {
+//SINGLE DRINKS 
+export const productDetailsReducer = (state = { drink: [] }, action) => {
   switch (action.type) {
-    case PRODUCT_DETAILS_REQUEST:
+    case DRINK_DETAILS_REQUEST:
       return { ...state ,loading: true };
-    case PRODUCT_DETAILS_SUCCESS:
-      return { loading: false, product: action.payload };
-    case PRODUCT_DETAILS_FAIL:
+    case DRINK_DETAILS_SUCCESS:
+      return { loading: false, drink: action.payload };
+    case DRINK_DETAILS_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;

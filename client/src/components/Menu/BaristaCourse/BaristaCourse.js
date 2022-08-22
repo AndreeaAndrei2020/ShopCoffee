@@ -47,7 +47,7 @@ function BaristaCourse() {
                       <Link to={`/baristaCourses/${item._id}`}>
                         <div className="titleDrink ">
                           <p className="fs-4 titleBarista">{item.name}</p>
-                          <p>{item.price} ron</p>
+                          <p>{item.price}.00 euro</p>
                         </div>
                         <div className="containerPhoto">
                           <img

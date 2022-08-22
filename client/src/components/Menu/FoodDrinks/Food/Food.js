@@ -2,9 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-// import Loading from "../../LoadingError/Loading";
-// import Message from "../../LoadingError/Error";
-// import { listFood } from "../../../Redux/Actions/ProductActions";
 import NavbarSecond from "../../../Navbar/NavbarSecond";
 import Loading from "../../../LoadingError/Loading";
 import Message from "../../../LoadingError/Error";
@@ -38,7 +35,7 @@ function FoodMenu() {
                   <Link to={`/food/${food._id}`}>
                     <div className="titleDrink">
                       <h3>{food.name}</h3>
-                      <p>{food.price} ron</p>
+                      <p>{food.price}.00  euro</p>
                     </div>
                     <div className="containerPhoto">
                       <img src={`${API_URL}${food.image}`} alt={food.name} />

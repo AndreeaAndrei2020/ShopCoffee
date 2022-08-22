@@ -36,7 +36,7 @@ const SingleFood = () => {
   };
 
   return (
-    <div>
+    <div style={{height:'100vh'}}>
       <NavbarSecond />
       {banner ? (
         <div
@@ -67,7 +67,7 @@ const SingleFood = () => {
                 <div className="col2">
                   <h1>{food.name}</h1>
                   <p className="description">{food.description}</p>
-                  <h4>- {food.price} ron -</h4>
+                  <h4>- {food.price}.00  euro -</h4>
                   {food.countInStock > 0 ? (
                     <p className="description">Status : Available</p>
                   ) : (

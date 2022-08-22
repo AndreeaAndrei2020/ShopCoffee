@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { login } from "../../Redux/Actions/userActions";
-import NavbarSecond from "../Navbar/NavbarSecond";
-import Message from "../LoadingError/Error.js";
-import Loading from "../LoadingError/Loading.js";
+import { login } from "../../../Redux/Actions/userActions";
+import NavbarSecond from "../../Navbar/NavbarSecond";
+import Message from "../../LoadingError/Error.js";
+import Loading from "../../LoadingError/Loading.js";
 import "./login.css";
 
 function Login() {
@@ -18,6 +18,7 @@ function Login() {
 
   const navigate = useNavigate();
   const { search } = useLocation();
+  console.log("location",search)
 
   const redirect = search ? search.split("=")[1] : "/";
 
@@ -28,6 +29,7 @@ function Login() {
     if (userInfo) {
       navigate(redirect);
     }
+    console.log("red",redirect)
   }, [userInfo, navigate, redirect]);
 
   const submitHandler = (e) => {

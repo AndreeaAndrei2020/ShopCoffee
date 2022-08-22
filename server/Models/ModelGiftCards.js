@@ -12,4 +12,4 @@ const giftCardsModel = mongoose.Schema(
 
 module.exports =
   mongoose.models.giftCardsModel ||
-  mongoose.model("giftCardsModel", giftCardsModel);
+  mongoose.model("giftCards", giftCardsModel);

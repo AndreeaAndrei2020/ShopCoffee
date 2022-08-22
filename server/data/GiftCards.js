@@ -2,7 +2,7 @@ const GiftCards = [
   {
     name: "GIFT CARD - PASSIONATE COURSES",
     image: "/images/giftCards/1.jpg",
-    price: 800,
+    price: 200,
     typeOfProduct: "giftCards",
     countInStock: 5,
   },
@@ -10,7 +10,7 @@ const GiftCards = [
     name: "GIFT CARD - COFFEE COMPLIMENTS",
     image: "/images/giftCards/2.jpg",
 
-    price: 100,
+    price: 50,
     typeOfProduct: "giftCards",
     countInStock: 6,
   },

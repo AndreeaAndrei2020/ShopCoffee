@@ -31,7 +31,7 @@ ImportData.post(
   asyncHandler(async (req, res) => {
     await ModelGiftCards.remove({});
     const importGiftCards = await ModelGiftCards.insertMany(giftCards);
-    res.send({ importGiftCards});  ///aici trimit la mangoDB
+    res.send({ importGiftCards});  
   })
 );
 
@@ -40,28 +40,20 @@ ImportData.post(
   asyncHandler(async (req, res) => {
     await schemaDrinks.remove({});
     const importCoffeeDrinks = await schemaDrinks.insertMany(coffeeDrinks);
-    const importCoktailsDrinks = await schemaDrinks.insertMany(cocktailsDrinks);
+    const importCoktailsDrinks = await schemaDrinks.insertMany(cocktailsDrinks);  ///to MongoDB
 
-    res.send({ importCoffeeDrinks , importCoktailsDrinks});  ///aici trimit la mangoDB
+    res.send({ importCoffeeDrinks , importCoktailsDrinks});  ///aici trimit la client
   })
 );
+
 ImportData.post(
   "/user",
   asyncHandler(async (req, res) => {
     await User.remove({});
     const importUser = await User.insertMany(users);
-    res.send({ importUser});  ///aici trimit la mangoDB
+    res.send({ importUser}); 
   })
 );
-
-ImportData.post(
-  "/cart",
-  asyncHandler(async (req, res) => {
-  
-    res.send({ 3:3});  ///aici trimit la mangoDB
-  })
-);
-
 
 
 ImportData.post(
@@ -71,7 +63,7 @@ ImportData.post(
     const importCoffeeDrinks = await schemaDrinks.insertMany(coffeeDrinks);
     const importCoktailsDrinks = await schemaDrinks.insertMany(cocktailsDrinks);
 
-    res.send({ importCoffeeDrinks , importCoktailsDrinks});  ///aici trimit la mangoDB
+    res.send({ importCoffeeDrinks , importCoktailsDrinks});  
   })
 );
 
@@ -81,7 +73,7 @@ ImportData.post(
     await schemaEquipments.remove({});
     const importEquipments = await schemaEquipments.insertMany(equipments);
 
-    res.send({ importEquipments });  ///aici trimit la mangoDB
+    res.send({ importEquipments });  
   })
 );
 
@@ -93,7 +85,7 @@ ImportData.post(
     await SchemaFood.remove({});
     const importFood = await SchemaFood.insertMany(food);
 
-    res.send({ importFood });  ///aici trimit la mangoDB
+    res.send({ importFood }); 
   })
 );
 
@@ -103,7 +95,7 @@ ImportData.post(
     await BaristaCoursesSchema.remove({});
     const importBaristaCourse = await BaristaCoursesSchema.insertMany(baristaCourses);
 
-    res.send({ importBaristaCourse });  ///aici trimit la mangoDB
+    res.send({ importBaristaCourse });  
   })
 );
 

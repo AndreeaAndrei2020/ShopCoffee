@@ -1,7 +1,6 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 const { protect } = require("../Middleware/AuthMiddleware.js");
-const User = require("../Models/UserModel.js");
 const UserModel = require("../Models/UserModel.js");
 const { generateToken } = require("../utils/generateToken.js");
 
@@ -11,6 +10,7 @@ const userRoutes = express.Router();
 userRoutes.post(
   "/login",
   asyncHandler(async (req, res) => {
+    
     const { email, password } = req.body;
 
     const user = await UserModel.findOne({ email });
@@ -19,7 +19,7 @@ userRoutes.post(
       res.json({
         _id: user._id,
         name: user.name,
-        lastName : user.lastName,
+        lastName: user.lastName,
         email: user.email,
         isAdmin: user.isAdmin,
         token: generateToken(user._id),
@@ -44,7 +44,7 @@ userRoutes.post(
       throw new Error("User already exists");
     }
 
-    const user = await User.create({
+    const user = await UserModel.create({
       name,
       lastName,
       email,
@@ -55,7 +55,7 @@ userRoutes.post(
       res.status(201).json({
         _id: user._id,
         name: user.name,
-        lastName : user.lastName,
+        lastName: user.lastName,
         email: user.email,
         isAdmin: user.isAdmin,
         token: generateToken(user._id),
@@ -72,15 +72,15 @@ userRoutes.get(
   "/profile",
   protect,
   asyncHandler(async (req, res) => {
-    const user = await User.findById(req.user._id);
+    const user = await UserModel.findById(req.user._id);
+
     if (user) {
       res.json({
         _id: user._id,
         name: user.name,
-        lastName : user.lastName,
+        lastName: user.lastName,
         email: user.email,
         isAdmin: user.isAdmin,
-    
         createdAt: user.createdAt,
       });
     } else {
@@ -96,7 +96,7 @@ userRoutes.put(
   "/profile",
   protect,
   asyncHandler(async (req, res) => {
-    const user = await User.findById(req.user._id);
+    const user = await UserModel.findById(req.user._id);
 
     if (user) {
       user.name = req.body.name || user.name;
@@ -105,16 +105,14 @@ userRoutes.put(
       if (req.body.password) {
         user.password = req.body.password;
       }
-
       const updatedUser = await user.save();
-
       res.json({
         _id: updatedUser._id,
         name: updatedUser.name,
-        lastName : user.lastName,
+        lastName: user.lastName,
         email: updatedUser.email,
         isAdmin: updatedUser.isAdmin,
-    
+
         createdAt: updatedUser.createdAt,
         token: generateToken(updatedUser._id),
       });
@@ -122,7 +120,6 @@ userRoutes.put(
       res.status(404);
       throw new Error("User not found");
     }
-  
   })
 );
 

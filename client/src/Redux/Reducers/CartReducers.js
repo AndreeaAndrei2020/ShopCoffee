@@ -13,13 +13,13 @@ export const cartReducer = (
   switch (action.type) {
     case CART_ADD_ITEM:
       const item = action.payload;
-      const existItem = state.cartItems.find((x) => x.product === item.product);
+      const existItem = state.cartItems.find((x) => x.product === item.product);  //sa vada daca gaseste acelasi produs in cos
 
       if (existItem) {
         return {
           ...state,
           cartItems: state.cartItems.map((x) =>
-            x.product === existItem.product ? item : x
+            x.product === existItem.product ? item : x     ///sa adauge itemul updatat
           ),
         };
       } else {
@@ -31,7 +31,8 @@ export const cartReducer = (
     case CART_REMOVE_ITEM:
       return {
         ...state,
-        cartItems: state.cartItems.filter((x) => x.product !== action.payload),
+        cartItems: state.cartItems.filter((x) => x.product !== action.payload),   ///in payload vine id ul produsului. Bagam produsele care nu au id ul repsectiv , inapoi.
+ 
       };
     case CART_SAVE_SHIPPING_ADDRESS:
       return {
@@ -47,6 +48,7 @@ export const cartReducer = (
         return {
           ...state,
           cartItems: [],
+          totalPrice: "",
         };
     default:
       return state;

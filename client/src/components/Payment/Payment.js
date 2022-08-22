@@ -16,11 +16,10 @@ function Payment() {
   if (!shippingAddress) {
     navigate("/shipping");
   }
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [alert, setAlert] = useState({ display: "none" });
-  const [paymentMethod, setPaymentMethod] = useState("Paypal");
+  const paymentMethod="crypto";
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -28,8 +27,8 @@ function Payment() {
       dispatch(savePaymentMethod(paymentMethod));
       navigate("/placeorder");
     } else {
-      setAlert({ display: "block" });
-    }
+      setAlert({ display: "block" });   //daca nu confirma clientul ca accepta plata in crypto
+    } 
   };
   return (
     <div>
