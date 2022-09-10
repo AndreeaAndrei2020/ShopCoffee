@@ -60,3 +60,12 @@ h2{
 .divH2{
     width: 100%;
 }
+
+.btnCrescDesc{
+    background-color:  rgb(168, 126, 70);
+    color: white;
+}
+.btnCrescDesc:hover{
+    background-color: white !important;
+    color:rgb(168, 126, 70) !important;
+}

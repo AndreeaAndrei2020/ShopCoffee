@@ -8,7 +8,7 @@ import "./Home.css";
 function Home() {
   return (
     <div>
-      <Navbar />
+      <Navbar/>
       <div className="divHomeMenuitems">
         {MenuItems.map((item, index) => {
           return (
@@ -20,7 +20,7 @@ function Home() {
                   style={{ width: "100%" }}
                   alt="imageHome"
                 />
-                <div className="centeredTitle">{item.title}</div>
+                <div className="centeredTitle" style={{top:'40%'}}>{item.title}</div>
               </Link>
             </div>
           );

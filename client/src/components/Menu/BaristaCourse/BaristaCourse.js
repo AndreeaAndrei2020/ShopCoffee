@@ -3,20 +3,12 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-// import NavbarSecond from "../Navbar/NavbarSecond";
 
-// import { listCourses } from "../../Redux/Actions/ProductActions";
-// import Loading from "../LoadingError/Loading";
-// import Message from "../LoadingError/Error";
-import "./baristaCourse.css";
+import { listCourses } from "../../../Redux/Actions/ProductActions";
 import NavbarSecond from "../../Navbar/NavbarSecond";
 import Loading from "../../LoadingError/Loading";
-import { listCourses } from "../../../Redux/Actions/ProductActions";
 import Message from "../../LoadingError/Error";
-// import NavbarSecond from "../../Navbar/NavbarSecond";
-// import Loading from "../../LoadingError/Loading";
-// import Message from "../../LoadingError/Error";
-// import { listCourses } from "../../../Redux/Actions/ProductActions";
+import "./baristaCourse.css";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -28,11 +20,12 @@ function BaristaCourse() {
   useEffect(() => {
     dispatch(listCourses());
   }, [dispatch]);
+  
   return (
     <div>
       <NavbarSecond />
       <div className="equipmentsComponent">
-        <h2 className="h2Menu">Barista Courses</h2>
+        <h2 className="h2Menu">Cursuri Barista</h2>
         <div className="pro-container equipmentsContainer">
           <div className="pro-container">
             {loading ? (

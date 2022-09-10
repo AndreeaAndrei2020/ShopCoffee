@@ -28,8 +28,6 @@
 }
 .pro img {
   width: 100%;
-  /* justify-content: center;
-    display: block;  */
 }
 .pro-container {
   display: flex;
@@ -43,13 +41,6 @@
 }
 
 .titleDrink {
-  /* position: relative;
-  color: white;
-  /* margin: 0 auto; */
-  /* width: 100%;
-  font-size: 18px;
-  top: 0%;  */
-
   position: absolute;
   color: white;
   text-align: center;

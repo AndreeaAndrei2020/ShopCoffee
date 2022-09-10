@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import NavbarSecond from "../Navbar/NavbarSecond";
-import { saveShippingAddress } from "../../Redux/Actions/cartActions";
 import "./shippingAdress.css";
+import { saveShippingAddress } from "../../../Redux/Actions/cartActions";
+import NavbarSecond from "../../Navbar/NavbarSecond";
 
 function ShippingScreen() {
   window.scrollTo(0, 0);
@@ -26,7 +26,7 @@ function ShippingScreen() {
   };
 
   return (
-    <div style={{ height: "100vh" }}>
+    <div>
       {" "}
       <div>
         <NavbarSecond />
@@ -51,16 +51,16 @@ function ShippingScreen() {
               ></i>
               <h3 className="mt-3 text-white">
                 {" "}
-                {nameUser ? <>Welcome, {nameUser.userInfo.name}</> : ""}
+                {nameUser ? <>Bun venit, {nameUser.userInfo.name}.</> : ""}
               </h3>
-              <p className="white-text">Complete your order!</p>
+              <p className="white-text">Completează adresa!</p>
             </div>
           </div>
           <div className="col-md-9 justify-content-center ">
             <div className="card card-custom pb-4">
               <div className="card-body mt-0 mx-5">
                 <div className="text-center mb-3 pb-2 mt-3">
-                  <h4>Delivery Details</h4>
+                  <h4>Detalii livrare</h4>
                 </div>
 
                 <form className="mb-0" onSubmit={submitHandler}>
@@ -69,7 +69,7 @@ function ShippingScreen() {
                     <div className="col">
                       <div className="form-outline">
                         <label className="" htmlFor="form9Example6">
-                          Address
+                          Adresa
                         </label>
                         <input
                           type="text"
@@ -87,7 +87,7 @@ function ShippingScreen() {
                       <div className="form-outline">
                         {" "}
                         <label className="" htmlFor="form9Example4">
-                          Postal Code
+                          Cod poștal
                         </label>
                         <input
                           type="text"
@@ -106,7 +106,7 @@ function ShippingScreen() {
                       type="submit"
                       className="btn btn-primary btn-rounded btnPlaceOrder"
                     >
-                      Place order
+                    Continuă
                     </button>
                   </div>
                 </form>

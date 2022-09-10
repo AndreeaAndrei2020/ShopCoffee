@@ -3,11 +3,11 @@ import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 
+import { ToastContainer, toast } from "react-toastify";
 import { register } from "../../../Redux/Actions/userActions";
-import NavbarSecond from "../../Navbar/NavbarSecond";
 import Message from "../../LoadingError/Error";
 import Loading from "../../LoadingError/Loading";
-import { ToastContainer, toast } from "react-toastify";
+import NavbarSecond from "../../Navbar/NavbarSecond";
 import "./register.css";
 
 function Register() {
@@ -49,24 +49,24 @@ function Register() {
       ///toate cimpurile sa fie completate
       if (!toast.isActive(toastId.current)) {
         toastId.current = toast.error(
-          "You must fill in all of the fields !",
+          "Este nevoie să completezi toate câmpurile!",
           Toastobjects
         );
       }
     } else if (!isValidEmail(email)) {
       if (!toast.isActive(toastId.current)) {
-        toastId.current = toast.error("Email is invalid", Toastobjects);
+        toastId.current = toast.error("Email-ul este invalid", Toastobjects);
       }
     } else if (confirmPassword !== password) {
       ///daca parolele nu corespund
       if (!toast.isActive(toastId.current)) {
-        toastId.current = toast.error("passwords do not match !", Toastobjects);
+        toastId.current = toast.error("Parolele introduse nu ce potrivesc!", Toastobjects);
       }
     } else if (password.length < 8) {
       ///daca parola e prea scurta
       if (!toast.isActive(toastId.current)) {
         toastId.current = toast.error(
-          "your password must contain at least 8 characters!",
+          "Parola ta trebuie sa contina cel putin 8 caractere!",
           Toastobjects
         );
       }
@@ -89,17 +89,17 @@ function Register() {
               <div className="field input-field inputProfile ">
                 <input
                   type="text"
-                  placeholder="First Name"
+                  placeholder="Prenumele"
                   className="input"
                   value={name}
-                  minlength={3}
+                  minLength={3}
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div className="field input-field inputProfile">
                 <input
                   type="text"
-                  placeholder="Last Name"
+                  placeholder="Numele"
                   className="input"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
@@ -117,7 +117,7 @@ function Register() {
               <div className="field input-field inputProfile">
                 <input
                   type="password"
-                  placeholder="Password"
+                  placeholder="Parola"
                   className="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -126,7 +126,7 @@ function Register() {
               <div className="field input-field inputProfile">
                 <input
                   type="password"
-                  placeholder="Confim password"
+                  placeholder="Confirmare parola"
                   className="password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
@@ -135,13 +135,13 @@ function Register() {
 
               <div className="field button-field inputProfile">
                 <button className="btnLogin" type="submit">
-                  Register now
+                Inregistreaza-te
                 </button>
               </div>
 
               <div className="form-link createAccount inputProfile">
                 <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
-                  Have an Account Already?
+                  Aveti deja un cont?
                 </Link>
               </div>
             </form>

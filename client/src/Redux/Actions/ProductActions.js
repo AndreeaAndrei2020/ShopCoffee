@@ -35,25 +35,26 @@ import {
 const API_URL = process.env.REACT_APP_API_URL;
 
 // DRINK LIST
-export const listProduct = () => async (dispatch) => {
+export const listDrinks = () => async (dispatch) => {
   try {
     dispatch({ type: DRINK_LIST_REQUEST });
     const { data } = await axios.get(`${API_URL}/api/drinks`);
     dispatch({ type: DRINK_LIST_SUCCESS, payload: data });
-  } catch (error) {
-    console.log("error", error);
+  } 
+  catch (err) {
+    console.log("err", err);
     dispatch({
       type: DRINK_LIST_FAIL,
       payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+        err.response && err.response.data.message
+          ? err.response.data.message
+          : err.message,
     });
   }
 };
 
 // SINGLE DRINK
-export const listProductDetails = (id) => async (dispatch) => {
+export const listDrinkDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: DRINK_DETAILS_REQUEST });
     const { data } = await axios.get(`${API_URL}/api/drinks/${id}`);
@@ -70,13 +71,11 @@ export const listProductDetails = (id) => async (dispatch) => {
   }
 };
 
-// FOOOOOOOOOOOOOOOOOOOD
-// DRINK LIST
+// FOOD
 export const listFood = () => async (dispatch) => {
   try {
     dispatch({ type: FOOD_LIST_REQUEST });
     const { data } = await axios.get(`${API_URL}/api/food`);
-
     dispatch({ type: FOOD_LIST_SUCCESS, payload: data });
   } catch (error) {
     console.log("error", error);
@@ -109,7 +108,6 @@ export const listCourses = () => async (dispatch) => {
   }
 };
 
-// GIIIIFT
 // GIFT CARD LIST
 export const listGiftCards = () => async (dispatch) => {
   try {

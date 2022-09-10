@@ -3,16 +3,12 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-// import { listEquipmentDetails } from "../../Redux/Actions/ProductActions";
-// import NavbarSecond from "../Navbar/NavbarSecond";
-// import Loading from "../LoadingError/Loading";
-// import Message from "../LoadingError/Error";
-import "./equipment.css";
-import "./singleEquipment.css";
 import { listEquipmentDetails } from "../../../Redux/Actions/ProductActions";
 import Loading from "../../LoadingError/Loading";
 import Message from "../../LoadingError/Error";
 import NavbarSecond from "../../Navbar/NavbarSecond";
+import "./equipment.css";
+import "./singleEquipment.css";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -27,9 +23,8 @@ const SingleEquipment = () => {
   }, [dispatch, id]);
 
   return (
-    <div style={{height:'100vh'}}>
+    <div>
       <NavbarSecond />
-     
       <div className="singleDrinkComponent">
         {loading ? (
           <Loading />
@@ -37,7 +32,10 @@ const SingleEquipment = () => {
           <Message variant="alert-danger">{error}</Message>
         ) : (
           <>
-            <div className="small-container single-product" style={{paddingTop:'120px'}}>
+            <div
+              className="small-container single-product"
+              style={{ paddingTop: "120px" }}
+            >
               <div className="row">
                 <div className="col2">
                   <img
@@ -49,23 +47,34 @@ const SingleEquipment = () => {
                 <div className="col2">
                   <h1>{equipment.name}</h1>
                   <p className="description">{equipment.description}</p>
-                  <h4>- {equipment.price}.00  euro -</h4>
+                  <h4>- {equipment.price}.00 euro -</h4>
                   <p className="descriptionPayment">
-                    PAYMENT AND COLLECTION OF THIS DEVICE IS MADE STRICTLY AT
-                    OUR CAFE !
+                    PLATA ȘI COLECTAREA ACESTUI DISPOZITIV SE FACE STRICT LA
+                    CAFENEA !
                   </p>
-                  <p className="lh-1"><i>CHARACTERISTICS</i></p>
-                  <p className="lh-sm"><i>
-                  weight : {equipment.weight}</i></p>
-                  <p className="lh-base"><i>
-                  Size : {equipment.size}</i></p>
-                  <p className="lh-lg"><i>
-                  Power: {equipment.power}</i></p>
-                  <p className="lh-lg"><i>
-                    Water supply: tank / mains</i></p> <p className="lh-1">You can extract an espresso or prepare a creamy cappuccino, as you would drink them in a specialty coffee shop. Built-in technologies allow optimal coffee extraction and help you have a good elastic, creamy milk cream.</p>
+                  <p className="lh-1">
+                    <i>CARACTERISTICI</i>
+                  </p>
+                  <p className="lh-sm">
+                    <i>greutate : {equipment.weight}</i>
+                  </p>
+                  <p className="lh-base">
+                    <i>marime : {equipment.size}</i>
+                  </p>
+                  <p className="lh-lg">
+                    <i>putere : {equipment.power}</i>
+                  </p>
+                  <p className="lh-lg">
+                    <i>Alimentare cu apă: rezervor / retea</i>
+                  </p>{" "}
+                  <p className="lh-1">
+                    Puteți extrage un espresso sau pregăti un cappuccino cremos,
+                    așa cum le-ați bea într-o cafenea de specialitate.
+                    Tehnologiile încorporate permit extragerea optimă a cafelei
+                    și te ajută să ai o crema de lapte bună, elastică, cremoasă
+                  </p>
                 </div>
               </div>
-
             </div>
           </>
         )}

@@ -16,7 +16,7 @@ import {
   USER_UPDATE_PROFILE_SUCCESS,
 } from "../Constants/UserConstants";
 import axios from "axios";
-import { ORDER_LIST_MY_REQUEST, ORDER_LIST_MY_RESET } from "../Constants/OrderConstants";
+import { ORDER_LIST_MY_RESET } from "../Constants/OrderConstants";
 const API_URL = process.env.REACT_APP_API_URL;
 
 // LOGIN
@@ -31,7 +31,7 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `${API_URL}/api/users/login?`,
+      `${API_URL}/api/users/login`,
       {
         email,
         password,
@@ -153,7 +153,6 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
 
     dispatch({ type: USER_UPDATE_PROFILE_SUCCESS, payload: data }); //userRoutes , email.id..
 
-    localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
     const message =
       error.response && error.response.data.message

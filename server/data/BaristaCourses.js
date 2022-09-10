@@ -4,7 +4,7 @@ const BaristaCourses = [
     image: "/images/baristaCourses/introductionToCoffee.jpg",
     price: 200,
     description:
-      "Through Introduction To Coffee you acquire a solid theoretical basis in the field of specialty coffee. Whether you are a coffee enthusiast curious to learn more or you want to create a career in the field, with Introduction To Coffee you map the path of coffee from plant to cup. We talk about origins, history, dispel myths, taste different origins and enter the technical area with a brief presentation of alternative coffee preparation methods and factors that can influence extraction.",
+      "Prin Introduction To Coffee dobândești o bază teoretică solidă în domeniul cafelei de specialitate. Fie că ești un pasionat de cafea curios să afle mai multe sau vrei să îți creezi o carieră în domeniu, prin Introduction To Coffee îți mapezi drumul cafelei de la plantă la ceașcă. Povestim despre origini, despre istorie, înlăturăm miturile, gustăm diferite origini și intrăm în zona tehnică cu o scurtă prezentare a metodelor alternative de preparare a cafelei și factorii care pot influența extracția.",
     typeOfProduct: "baristaCourses",
     countInStock: 1,
   },
@@ -12,17 +12,14 @@ const BaristaCourses = [
     name: "ESPRESSO ORIENTATION",
     image: "/images/baristaCourses/espressoOrientation.jpg",
     price: 200,
-    description:
-      "After your Espresso Orientation meeting where we explain, explore and enjoy the science and craft of espresso coffee, you'll have the confidence to make your own espresso or cappuccino.In this course you will learn: quick information and curiosities in the field of specialty coffee, espresso preparation, Introduction to the latte art technique.",
-    typeOfProduct: "baristaCourses",
+    description: "Espresso Orientation este unul din seria de cursuri dedicate amatorilor de cafea, întâlniri în care aducem la aceeași masă curiozitățile pasionaților de cafea și cunoștințele echipei noastre.",
     countInStock: 2,
   },
   {
     name: "SENSORY ORIENTATION",
     image: "/images/baristaCourses/sensoryOrientation.jpg",
     price: 200,
-    description:
-      "Sensory Orientation is one of the series of courses dedicated to coffee lovers, meetings where we bring to the same table the curiosities of coffee enthusiasts and the knowledge of our team.",
+    description: "Sensory Orientation este unul din seria de cursuri dedicate amatorilor de cafea, întâlniri în care aducem la aceeași masă curiozitățile pasionaților de cafea și cunoștințele echipei noastre. ", 
     typeOfProduct: "baristaCourses",
     countInStock: 3,
   },
@@ -30,7 +27,9 @@ const BaristaCourses = [
     name: "BREWING ORIENTATION",
     image: "/images/baristaCourses/sensoryOrientation2.jpg",
     price: 200,
-    description: "Brewing Orientation is one of a series of courses dedicated to coffee lovers, meetings where we bring the curiosities of coffee enthusiasts and the knowledge of our team to the same table. You will learn: quick information and curiosities in the field of specialty coffee, filter preparation.",
+    description: 
+     "Brewing Orientation este unul dintr-o serie de cursuri dedicate iubitorilor de cafea, întâlniri la care aducem la aceeași masă curiozitățile pasionaților de cafea și cunoștințele echipei noastre. Vei învata: informatii rapide si curiozitati in domeniul cafelei de specialitate, prepararea filtrului.",
+
     typeOfProduct: "baristaCourses",
     countInStock: 0,
   },

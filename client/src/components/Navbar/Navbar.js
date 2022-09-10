@@ -42,9 +42,8 @@ function Navbar() {
     }
   };
 
-  ///USEEEEEEEER
+  ///USER
   const functionClickedDropdownUser = (event) => {
-    // const mouse = event.target.id;
     if (!clickedDropdownUser) {
       ///daca nu e inchis
       setClickedDropdownUser(!clickedDropdown);
@@ -57,7 +56,6 @@ function Navbar() {
   };
 
   document.addEventListener("click", function (event) {
-    // console.log(event.target.className.split(" "));
     if (event.target.id !== "dropdownForOutside") {
       setClickedDropdown(false);
       setStyleDropdown("dropdownHidden");
@@ -100,24 +98,22 @@ function Navbar() {
             {/* START SHOP */}
             <li>
               <div className="dropdown" onClick={functionClickedDropdown}>
-                {/* <Link to="/" className="linkNavbar "> */}
                 <p className="nav-links " id="dropdownForOutside">
                   Shop <i className="bx bxs-chevron-down "></i>{" "}
                 </p>
-                {/* </Link> */}
 
                 <div className={styleDropdown}>
                   <Link to="/drinks" className="linkDropdown">
-                    Drinks
+                    Cafea
                   </Link>
                   <Link to="/food" className="linkDropdown">
-                    Food
+                    Gustări
                   </Link>
                   <Link to="/baristaCourses" className="linkDropdown">
-                    Barista Course
+                    Cursuri Barista
                   </Link>
                   <Link to="/equipment" className="linkDropdown">
-                    Home Equipments
+                    Echipamente pentru acasă
                   </Link>
                   <Link to="/giftCards" className="linkDropdown">
                     Gift Cards
@@ -131,7 +127,7 @@ function Navbar() {
               <div className="dropdown" onClick={functionClickedDropdownUser}>
                 <p className="nav-links" id="dropdownForOutsideUser">
                   <i className="fas fa-user-alt"></i>
-                  {userInfo ? <> Hi, {userInfo.name}</> : ""}
+                  {userInfo ? <> Bună, {userInfo.name}</> : ""}
                   <i className="bx bxs-chevron-down "></i>
                 </p>
 
@@ -139,15 +135,11 @@ function Navbar() {
                   <>
                     {" "}
                     <div className={styleDropdownUser}>
-                      
-                    <Link to="/profile" className="linkDropdown">
-                     Reset your password
+                      <Link to="/profile" className="linkDropdown">
+                        Resetează parola
                       </Link>
-                      <Link
-                        to="/ordersUser"
-                        className="linkDropdown"
-                      >
-                     See your orders
+                      <Link to="/ordersUser" className="linkDropdown">
+                        Istoric comenzi
                       </Link>
                       <Link
                         to="/"
@@ -169,7 +161,7 @@ function Navbar() {
                         className="linkDropdown"
                         onClick={logoutHandler}
                       >
-                        Register
+                        Inregistrează-te
                       </Link>
                     </div>
                   </>
@@ -203,9 +195,7 @@ function Navbar() {
             </li>
           </ul>
         </nav>
-        <div className="centered">
-          It's not just coffee, it's an experience!
-        </div>
+        <div className="centered">Nu este doar o cafea, este o experiență!</div>
       </div>
     </div>
   );

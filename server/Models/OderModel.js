@@ -31,8 +31,7 @@ const orderSchema = mongoose.Schema(
     },
     paymentMethod: {
       type: String,
-      required: true,
-      default: "Paypal",
+  
     },
     paymentResult: {
       id: { type: String },
@@ -40,11 +39,11 @@ const orderSchema = mongoose.Schema(
       update_time: { type: String },
       email_adress: { type: String },
     },
-    taxPrice: {
-      type: Number,
-      required: true,
-      default: 0.0,
-    },
+    // taxPrice: {
+    //   type: Number,
+    //   required: true,
+    //   default: 0.0,
+    // },
     shippingPrice: {
       type: Number,
       required: true,
@@ -55,18 +54,18 @@ const orderSchema = mongoose.Schema(
       required: true,
       default: 0.0,
     },
-    isPaid: {
-      type: Boolean,
-      required: true.value,
-      default: false,
-    },
-    paidAt: { type: Date },
-    isDelivered: {
-      type: Boolean,
-      required: true,
-      default: false,
-    },
-    deliveredAt: { type: Date },
+    // isPaid: {
+    //   type: Boolean,
+    //   required: true.value,
+    //   default: false,
+    // },
+    // paidAt: { type: Date },
+    // isDelivered: {
+    //   type: Boolean,
+    //   required: true,
+    //   default: false,
+    // },
+    // deliveredAt: { type: Date },
   },
   {
     timestamps: true,

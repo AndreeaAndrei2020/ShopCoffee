@@ -2,7 +2,7 @@ const DrinksCocktails = [
   {
     name: "The Lady`s Rose",
     image: "/images/drinks/cocktails/theLadyRose.jpg",
-    description: "Rosé Champagnes",
+  
     price: 7,
     countInStock:6,
     typeOfProduct: "drinks",
@@ -11,7 +11,6 @@ const DrinksCocktails = [
   {
     name: "Pink Glass",
     image: "/images/drinks/cocktails/pinkGlass.jpg",
-    description: "Gin Coktail",
     price: 5,
     countInStock: 10,
     typeOfProduct: "drinks",
@@ -19,7 +18,6 @@ const DrinksCocktails = [
   {
     name: "Shine",
     image: "/images/drinks/cocktails/2.jpg",
-    description: "Orange Whiskey",
     price: 5,
     countInStock: 10,
     typeOfProduct: "drinks",
@@ -27,7 +25,6 @@ const DrinksCocktails = [
   {
     name: "Mimosa",
     image: "/images/drinks/cocktails/3.jpg",
-    description: "Orange Champagne",
     price: 6,
     countInStock: 7,
     typeOfProduct: "drinks",
@@ -35,7 +32,6 @@ const DrinksCocktails = [
   {
     name: "The Pink Drop",
     image: "/images/drinks/cocktails/4.jpg",
-    description: "Campari Coktail",
     price: 9,
     countInStock: 10,
     typeOfProduct: "drinks",

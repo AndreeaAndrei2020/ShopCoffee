@@ -6,8 +6,7 @@ function Footer() {
       <footer>
         <div className="footer-content">
           <h3>Restart</h3>
-          <p>
-          Restart is a community of creative, open people who share experiences and life stories, while carefully preparing all the details for a specialty coffee. Order now or come to us!
+          <p>Restart este o comunitate de oameni creativi, deschiși, care împărtășesc experiențe și povești de viață, în timp ce pregătesc cu atenție toate detaliile pentru o cafea de specialitate. Comanda acum sau vino la noi!
           </p>
           <div className="footer-menu">
             <ul className="f-menu">
@@ -18,30 +17,13 @@ function Footer() {
                 <a href="/contact">Contact</a>
               </li>
               <li>
-                <a href="/delivery">Delivery</a>
+                <a href="/delivery">Livrare</a>
               </li>
              
             </ul>
           </div>
 
-          <ul className="socials">
-            <li>
-              <a href="/#">
-                <i className="fa fa-facebook"></i>
-              </a>
-            </li>
-           
-           
-            <li>
-              <a href="/#">
-                <i className="fa fa-instagram"></i>
-              </a>
-            </li>
-          </ul>
-
-          
         </div>
-
        
       </footer>
     </div>

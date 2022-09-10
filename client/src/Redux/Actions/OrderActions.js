@@ -8,12 +8,8 @@ import {
   ORDER_LIST_MY_FAIL,
   ORDER_LIST_MY_REQUEST,
   ORDER_LIST_MY_SUCCESS,
-  ORDER_PAY_FAIL,
-  ORDER_PAY_REQUEST,
-  ORDER_PAY_SUCCESS,
 } from "../Constants/OrderConstants";
 import axios from "axios";
-import { CART_CLEAR_ITEMS } from "../Constants/CartConstants";
 import { logout } from "./userActions";
 
 ///CREATE ORDER
@@ -35,8 +31,8 @@ export const createOrder = (order) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.post(`${API_URL}/api/orders`, order, config);
-    
-    dispatch({ type: ORDER_CREATE_SUCCESS, payload: data }); 
+
+    dispatch({ type: ORDER_CREATE_SUCCESS, payload: data });
 
     localStorage.setItem(
       "totalPrice",
@@ -89,48 +85,8 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
   }
 };
 
-/// ORDER PAY
-
-export const payOrder =
-  (orderId, paymentResult) => async (dispatch, getState) => {
-    try {
-      dispatch({ type: ORDER_PAY_REQUEST });
-
-      const {
-        userLogin: { userInfo },
-      } = getState();
-
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${userInfo.token}`,
-        },
-      };
-
-      const { data } = await axios.post(
-        `${API_URL}/api/orders/${orderId}/pay`,
-        paymentResult,
-        config
-      );
-
-      dispatch({ type: ORDER_PAY_SUCCESS, payload: data }); //userRoutes , email.id..
-    } catch (error) {
-      const message =
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message;
-      if (message === "Not authorized ,token failed") {
-        dispatch(logout());
-      }
-      dispatch({
-        type: ORDER_PAY_FAIL,
-        payload: message,
-      });
-    }
-  };
-
-  //USER ORDERS
-export const listMyOrders =() => async (dispatch, getState) => {
+//USER ORDERS
+export const listMyOrders = () => async (dispatch, getState) => {
   try {
     dispatch({ type: ORDER_LIST_MY_REQUEST });
 
@@ -145,12 +101,10 @@ export const listMyOrders =() => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(
-      `${API_URL}/api/orders`,
-      config
-    );
+    const { data } = await axios.get(`${API_URL}/api/orders`, config);
 
-    dispatch({ type: ORDER_LIST_MY_SUCCESS, payload: data }); //userRoutes , email.id..
+    dispatch({ type: ORDER_LIST_MY_SUCCESS, payload: data }); 
+
   } catch (error) {
     const message =
       error.response && error.response.data.message

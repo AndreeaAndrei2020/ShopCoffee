@@ -15,16 +15,13 @@ import {
 } from "./Reducers/ProductReducers";
 import { cartReducer } from "./Reducers/CartReducers";
 import {
-  userDetailsReducer,
   userLoginReducer,
   userRegisterReducer,
   userUpdateProfileReducer,
 } from "./Reducers/userReducers";
 import {
   orderCreateReducer,
-  orderDetailsReducer,
-  orderPayReducer,
-  orderListMyReducer
+  orderListMyReducer,
 } from "./Reducers/OrderReducers";
 
 const reducer = combineReducers({
@@ -47,12 +44,9 @@ const reducer = combineReducers({
 
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
-  userDetails: userDetailsReducer,
   userUpdateProfile: userUpdateProfileReducer,
 
   orderCreate: orderCreateReducer,
-  orderDetails: orderDetailsReducer,
-  orderPay: orderPayReducer,
   orderListMy: orderListMyReducer,
 });
 
@@ -72,12 +66,18 @@ const userInfoFromLocalStorage = localStorage.getItem("userInfo")
 const shippingAddressFromLocalStorage = localStorage.getItem("shippingAddress")
   ? JSON.parse(localStorage.getItem("shippingAddress")) ///shippingAddress din cartACtions
   : {};
+  
+//Weather
+const weatherAddressFromLocalStorage = localStorage.getItem("weather")
+  ? JSON.parse(localStorage.getItem("weather")) ///shippingAddress din cartACtions
+  : {};
 
 const initialState = {
   cart: {
     cartItems: cartItemsFormLocalStorage,
     totalPrice: totalPriceFormLocalStorage,
     shippingAddress: shippingAddressFromLocalStorage,
+    weather: weatherAddressFromLocalStorage,
   },
   userLogin: { userInfo: userInfoFromLocalStorage },
 };

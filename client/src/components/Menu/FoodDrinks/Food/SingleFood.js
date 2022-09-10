@@ -2,18 +2,13 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { listFoodDetails } from "../../../../Redux/Actions/ProductActions";
 import { addToCart } from "../../../../Redux/Actions/cartActions";
 import NavbarSecond from "../../../Navbar/NavbarSecond";
 import Loading from "../../../LoadingError/Loading";
 import Message from "../../../LoadingError/Error";
-
-// import { listFoodDetails } from "../../../Redux/Actions/ProductActions";
-// import { addToCart } from "../../../Redux/Actions/cartActions";
-// import NavbarSecond from "../../Navbar/NavbarSecond";
-// import Loading from "../../LoadingError/Loading";
-// import Message from "../../LoadingError/Error";
-
+import "../Drinks/singleDrinks.css";
 const API_URL = process.env.REACT_APP_API_URL;
 
 const SingleFood = () => {
@@ -23,6 +18,7 @@ const SingleFood = () => {
   const foodDetails = useSelector((state) => state.foodDetails);
   const { loading, error, food } = foodDetails;
   const [banner, setBanner] = useState(false);
+  const [qty1, setQty1] = useState();
 
   useEffect(() => {
     dispatch(listFoodDetails(id));
@@ -30,13 +26,13 @@ const SingleFood = () => {
 
   const AddToCartHAndle = (e) => {
     e.preventDefault();
-    // navigate(`/cart/${id}?qty=${qty}`);
     dispatch(addToCart(id, qty, "food"));
     setBanner(true);
+    setQty1(qty);
   };
 
   return (
-    <div style={{height:'100vh'}}>
+    <div>
       <NavbarSecond />
       {banner ? (
         <div
@@ -45,13 +41,13 @@ const SingleFood = () => {
           style={{ color: "white" }}
         >
           <h5>
-            {qty}x {food.name} was added to cart{" "}
+            {qty1}x {food.name} was added to cart{" "}
           </h5>
         </div>
       ) : (
         ""
       )}
-      <div className="singleDrinkComponent">
+      <div className="singleDrinkComponent" style={{ height: "100vh" }}>
         {loading ? (
           <Loading />
         ) : error ? (
@@ -67,7 +63,7 @@ const SingleFood = () => {
                 <div className="col2">
                   <h1>{food.name}</h1>
                   <p className="description">{food.description}</p>
-                  <h4>- {food.price}.00  euro -</h4>
+                  <h4>- {food.price}.00 euro -</h4>
                   {food.countInStock > 0 ? (
                     <p className="description">Status : Available</p>
                   ) : (

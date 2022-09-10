@@ -1,7 +1,6 @@
-import React from 'react'
-import NavbarSecond from './Navbar/NavbarSecond'
+import React from 'react';
 
-
+import NavbarSecond from './Navbar/NavbarSecond';
 
 function Page404() {
   return (
@@ -12,4 +11,4 @@ function Page404() {
   )
 }
 
-export default Page404
+export default Page404;

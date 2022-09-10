@@ -2,9 +2,9 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { addToCart, removefromcart } from "../../Redux/Actions/cartActions";
-import NavbarSecond from "../Navbar/NavbarSecond";
 import "./cartScreen.css";
+import { addToCart, removefromcart } from "../../../Redux/Actions/cartActions";
+import NavbarSecond from "../../Navbar/NavbarSecond";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -32,6 +32,8 @@ function CartScreen() {
   const removeFromCartHandle = (id) => {
     dispatch(removefromcart(id));
   };
+
+
   const userLogin = useSelector((state) => state.userLogin).userInfo;
 
   const navigate = useNavigate();
@@ -39,7 +41,7 @@ function CartScreen() {
     if (userLogin) navigate(`/shipping`);
     else {
       alert(
-        "To continue the order, you must be logged in. Please log in to your account or register.Thank you!".toUpperCase()
+        "Pentru a continua plasarea comenzii, trebuie să fiți logat la un cont. Vă rugăm să vă logați ori să vă înregistrați. Mulțumim!".toUpperCase()
       );
     }
   };
@@ -67,7 +69,7 @@ function CartScreen() {
               <div className="row d-flex justify-content-center align-items-center h-100">
                 <div className="col-10">
                   <div className="d-flex justify-content-between align-items-center mb-4">
-                    <h3 className="fw-normal mb-0 " style={{color:'white'}}>Your Shopping Cart</h3>
+                    <h3 className="fw-normal mb-0 " style={{color:'white'}}>Coșul tău de cumpărături</h3>
                   </div>
                   {cartItems.map((item) => {
                     return (
@@ -130,7 +132,7 @@ function CartScreen() {
                               </div>
                               <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                                 <h5 className="mb-0" style={{ color: "black" }}>
-                                  Price: {item.price}.00  euro
+                                  Preț: {item.price}.00  euro
                                 </h5>
                               </div>
                               <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
@@ -167,16 +169,16 @@ function CartScreen() {
                       className="mb-0"
                       style={{ color: "black", textAlign: "center" }}
                     >
-                      Summary
+                      Rezumat
                     </h5>
                   </div>
                   <div className="card-body">
                     <ul className="list-group list-group-flush">
                       <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                         <div>
-                          <strong>Total amount</strong>
+                          <strong>Suma totală</strong>
                           <strong>
-                            <p className="mb-0">(including VAT)</p>
+                            <p className="mb-0">(include TVA)</p>
                           </strong>
                         </div>
                         <span>
@@ -189,11 +191,11 @@ function CartScreen() {
                       className="btn btn-primary btn-lg btn-block buttonCheckOutCartScreen"
                       onClick={navigateToShipping}
                     >
-                      Go to checkout
+                     checkout
                     </button>
                     <h5 className="fw-bold mb-5" style={{ marginTop: "7px" }}>
                       <Link to="/menu" className="backToShipping">
-                        <i className="fas fa-angle-left me-2 "></i>Back to shopping
+                        <i className="fas fa-angle-left me-2 "></i>Înapoi la cumpărături
                       </Link>
                     </h5>
                   </div>

@@ -1,17 +1,17 @@
 export const MenuItems = [
   {
-    title: "Home equipment",
+    title: "Echipamente cafea",
     src: require('./photosHome/espressor2.jpg'),
     link :"/equipment"
      },
   {   
-    title: "Barista Course",
+    title: "Cursuri Barista",
     src: require('./photosHome/baristaCourse.jpg'),
     link :"/baristaCourses"
   },
   {
   
-    title: "Menu",
+    title: "Meniu",
     src: require('./photosHome/menu.jpg'),
     link :"/menu"
   },

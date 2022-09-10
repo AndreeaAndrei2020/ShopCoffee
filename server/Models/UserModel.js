@@ -19,12 +19,7 @@ const userModel = mongoose.Schema(
     password: {
       type: String,
       require: true,
-    },
-    isAdmin: {
-      type: Boolean,
-      require: true,
-      default: false,
-    },
+    }
   },
   {
     timestamps: true,
@@ -46,5 +41,4 @@ userModel.pre("save",async function(next) {
 });
 
 const User = mongoose.model("User", userModel);
-
 module.exports = User;

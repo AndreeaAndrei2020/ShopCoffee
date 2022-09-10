@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import moment from "moment";
 
 import { updateUserProfile } from "../../../Redux/Actions/userActions";
 import noprofile from "./noprofil.jpg";
-import Toast from "../../LoadingError/Toast.js";
+import Toast from '../../LoadingError/Toast.js'
 import Message from "../../LoadingError/Error";
 import NavbarSecond from "../../Navbar/NavbarSecond";
 import Loading from "../../LoadingError/Loading";
@@ -32,12 +31,7 @@ function Profile() {
   const dispatch = useDispatch();
 
   const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
-
-
-  ///profile tabs
-  const userDetails = useSelector((state) => state.userDetails);
-  const { loading, error, user } = userDetails;
+  const { loading, error, userInfo : user }  = userLogin;
 
   ///profile tabs
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
@@ -48,27 +42,26 @@ function Profile() {
       setName(user.name);
       setEmail(user.email);
     }
-    //  dispatch(getUserDetails("profile"))
   }, [dispatch, user]);
 
   const submitHandler = (e) => {
     e.preventDefault();
     if (password.length < 8) {
       if (!toast.isActive(toastId.current))
-        toastId.current = toast.error("Password too short", Toastobjects);
+        toastId.current = toast.error("Parola ta trebuie să conțină cel putin 8 caractere!", Toastobjects);
     }
 
     //password match
     else if (password !== confirmPassword) {
       if (!toast.isActive(toastId.current)) {
-        toastId.current = toast.error("Password does not match", Toastobjects); ///sa nu apara Error decat o data cand apas de mai multe ori pe buton
+        toastId.current = toast.error("Parolele introduse nu ce potrivesc!", Toastobjects); ///sa nu apara Error decat o data cand apas de mai multe ori pe buton
       }
     } else {
       dispatch(
         updateUserProfile({ id: user._id, name, lastName, email, password })
       );
       if (!toast.isActive(toastId.current)) {
-        toastId.current = toast.success("Profile Updated", Toastobjects); ///sa nu apara Error decat o data cand apas de mai multe ori pe buton
+        toastId.current = toast.success("Parola resetată", Toastobjects); ///sa nu apara Error decat o data cand apas de mai multe ori pe buton
       }
     }
   };
@@ -80,16 +73,16 @@ function Profile() {
       {error && <Message variant="alert-danger">{error}</Message>}
       {loading && <Loading />}
       {updateLoading && <Loading />}
-      {userInfo ? (
+      {user ? (
         <section className="container forms">
           <div className="form login">
             <div className="headerProfile">
               <div className="divImgProfile">
                 <img src={noprofile} className="profileIMG" alt="profile"></img>
-                {userInfo ? (
+                {user ? (
                   <div>
                     <h4 style={{ color: "white", margin: "22px" }}>
-                      HI, {userInfo.name}
+                      HI, {user.name}
                       <br></br>
                       <div
                         style={{
@@ -99,7 +92,7 @@ function Profile() {
                         }}
                       ></div>
                       <small style={{ color: "white", margin: "2px" }}>
-                        Joined {moment(userInfo.createdAt).format("LL")}{" "}
+                        Joined {moment(user.createdAt).format("LL")}{" "}
                       </small>
                     </h4>
                   </div>
@@ -110,26 +103,7 @@ function Profile() {
             </div>
             <div className="form-content">
               <form onSubmit={submitHandler}>
-                {/* <div className="field input-field inputProfile">
-                  <input
-                    type="text"
-                    placeholder="Full Name"
-                    className="input"
-                    value={name}
-                    required
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </div> */}
-                {/* <div className="field input-field inputProfile">
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    className="input"
-                    value={email}
-                    required
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div> */}
+              
                 <div className="field input-field inputProfile">
                   <input
                     type="password"
@@ -151,10 +125,7 @@ function Profile() {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                   />
                 </div>
-                <div className="form-link">
-                  <Link to="/"></Link>
-                </div>
-
+          
                 <div className="field button-field inputProfile">
                   <button className="btnLogin" type="submit">
                     RESET THE PASSWORD
@@ -162,11 +133,7 @@ function Profile() {
                 </div>
 
                 <div className="form-link createAccount">
-                  {/* <Link
-                  to={redirect ? `/register?redirect=${redirect}` : "/register"}
-                >
-                  Create Account
-                </Link> */}
+               
                 </div>
               </form>
             </div>

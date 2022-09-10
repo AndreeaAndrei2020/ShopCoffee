@@ -2,9 +2,6 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-// import { listGiftCards } from "../../Redux/Actions/ProductActions";
-// import Loading from "../LoadingError/Loading";
-// import Message from "../LoadingError/Error";
 import "./giftCards.css";
 import Loading from "../../LoadingError/Loading";
 import Message from "../../LoadingError/Error";
@@ -37,7 +34,7 @@ function GiftCards() {
                 <div className="pro" key={index}>
                   <Link to={`/giftCards/${item._id}`}>
                     <div className="titleDrink">
-                      <h3>{item.name}</h3>
+                      <h4 style={{padding:'10px'}}>{item.name}</h4>
                       <p>{item.price}.00  euro</p>
                     </div>
                     <div className="containerPhoto">

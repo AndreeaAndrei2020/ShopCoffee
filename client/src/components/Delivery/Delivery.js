@@ -15,19 +15,26 @@ function Delivery() {
             paddingBottom:'50px'
           }}
         >
-          Delivery
+         Livrarea
         </p>
           <p className="fs-5" style={{ textAlign: "center" }}>
-            The delivery is made strictly in Bucharest!
+    
+            Livrarea se face strict în București!
           </p>
           <p className="fs-5" style={{ textAlign: "center" }}>
-            Shipping is free for a minimum order of 100 lei. If you opt for a
-            basket with a lower value, the cost of the courier service will be
-            10 lei/parcel
+          Transportul este gratuit pentru o comandă de minim 100 lei. Dacă optați pentru un
+             coș cu o valoare mai mică, costul serviciului de curierat va fi
+             2euro/colet.
+          </p>{" "}
+          <p className="fs-5" style={{ textAlign: "center" }}>
+         Pentru vremea ploioasă, se adaugă taxă extra 1 euro. 
           </p>{" "}
           <p  className="fs-5" style={{ textAlign: "center" }}>
-            The delivery is very fast. We reach you within 30 minutes after
-            placing the order.
+          Livrarea este foarte rapidă. Vă ajungem în 30 de minute după
+             plasarea comenzii.
+          </p>
+          <p  className="fs-5" style={{ textAlign: "center" }}>
+          PLATA doar în moneda virtuală ETH, prin portofelul digital Metamask. 
           </p>
         </div>
       </div>

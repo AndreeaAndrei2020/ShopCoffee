@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { savePaymentMethod } from "../../Redux/Actions/cartActions";
-import NavbarSecond from "../Navbar/NavbarSecond";
+import {
+  addWeather,
+  savePaymentMethod,
+} from "../../../Redux/Actions/cartActions";
+import NavbarSecond from "../../Navbar/NavbarSecond";
 import metamask from "./metamask.png";
 import "./payment.css";
 
@@ -19,16 +22,17 @@ function Payment() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [alert, setAlert] = useState({ display: "none" });
-  const paymentMethod="crypto";
+  const paymentMethod = "crypto";
 
   const submitHandler = (e) => {
     e.preventDefault();
     if (checkedInput === true) {
       dispatch(savePaymentMethod(paymentMethod));
+      dispatch(addWeather());
       navigate("/placeorder");
     } else {
-      setAlert({ display: "block" });   //daca nu confirma clientul ca accepta plata in crypto
-    } 
+      setAlert({ display: "block" }); //daca nu confirma clientul ca accepta plata in crypto
+    }
   };
   return (
     <div>
@@ -41,8 +45,8 @@ function Payment() {
             <div className="contact-box">
               <div className="left">
                 <div className="alert " role="alert" style={alert}>
-                  Sorry, if you don't accept the method of payment, we can't let
-                  you continue the order
+                  Ne pare rău, dacă nu acceptați metoda de plată, nu vă putem
+                  lăsa să continuați plasarea comenzii.
                 </div>
 
                 <div className="smallerLeft">
@@ -50,9 +54,9 @@ function Payment() {
                     <img src={metamask}></img>
                   </h2>
                   <p style={{ color: "white" }}>
-                    SO OUR SITE ONLY ACCEPTS PAYMENT IN ETHEREUM, THROUGH THE
-                    METAMASK PLATFORM TO ENCOURAGE YOUNG PEOPLE TO INVEST IN THE
-                    CRYPTO MARKET
+                    SITE-UL NOSTRU ACCEPTĂ NUMAI PLATĂ ÎN ETHEREUM, PRIN
+                    PLAFORMA METAMASK. DACĂ SUNTEȚI DE ACORD, VA RUGĂM SA BIFAȚI
+                    CĂSUȚA.
                   </p>
                   <form onSubmit={submitHandler}>
                     <input
@@ -71,10 +75,10 @@ function Payment() {
                         marginBottom: "7px",
                       }}
                     >
-                      YES, I accept the payment in Ethereum
+                      DA, accept plata în Ethereum
                     </label>
 
-                    <button className="btnContinue">Continue</button>
+                    <button className="btnContinue">Continuă</button>
                   </form>
                 </div>
               </div>{" "}
@@ -88,38 +92,3 @@ function Payment() {
 }
 
 export default Payment;
-
-{
-  /* <section className="container forms">
-          <div className="form login">
-            <div className="headerProfile">
-              <h2>SELECT PAYMENT METHOD</h2>
-            </div>
-            <div className="form-content">
-              <form onSubmit={submitHandler}>
-                <div className="field input-field">
-                  <input
-                    type="radio"
-                    placeholder="Enter adress"
-                    className="input"
-                    // required
-                    value={paymentMethod}
-                    onChange={(e) => setPaymentMethod(e.target.value)}
-                  />
-                  <label style={{ color: "white" }}>
-                    Crypto Or Credit Card
-                  </label>
-                </div>
-
-            
-
-                <div className="field button-field">
-                  <button className="btnLogin" type="submit" on>
-                    Continue
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </section> */
-}

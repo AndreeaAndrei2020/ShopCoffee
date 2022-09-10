@@ -3,15 +3,11 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-// import { listEquipment } from "../../Redux/Actions/ProductActions";
-// import NavbarSecond from "../Navbar/NavbarSecond";
-// import Loading from "../LoadingError/Loading";
-// import Message from "../LoadingError/Error";
-import "./equipment.css";
+import { listEquipment } from "../../../Redux/Actions/ProductActions";
 import NavbarSecond from "../../Navbar/NavbarSecond";
 import Loading from "../../LoadingError/Loading";
 import Message from "../../LoadingError/Error";
-import { listEquipment } from "../../../Redux/Actions/ProductActions";
+import "./equipment.css";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -25,11 +21,11 @@ function HomeEquipment() {
   }, [dispatch]);
 
   return (
-    <div style={{height:'100vh'}}>
+    <div style={{ height: "100vh" }}>
       <NavbarSecond />
-      <div >
+      <div>
         <h2 className="h2Menu">Home Equipments</h2>
-        <div className="pro-container" >
+        <div className="pro-container">
           {loading ? (
             <Loading />
           ) : error ? (

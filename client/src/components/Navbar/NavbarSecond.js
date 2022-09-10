@@ -16,7 +16,7 @@ function NavbarSecond() {
   const [styleDropdownUser, setStyleDropdownUser] = useState("dropdownHidden");
   const [clickedDropdownUser, setClickedDropdownUser] = useState(false);
 
-  const productsLengths= useSelector((state) => state.cart).cartItems.length
+  const productsLengths = useSelector((state) => state.cart).cartItems.length;
   ///PT USER
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
@@ -27,7 +27,6 @@ function NavbarSecond() {
 
   /////DROPDOWM
   const functionClickedDropdown = (event) => {
-    // const mouse = event.target.id;
     if (!clickedDropdown) {
       ///daca nu e inchis
       setClickedDropdown(!clickedDropdown);
@@ -45,7 +44,6 @@ function NavbarSecond() {
 
   ///USEEEEEEEER
   const functionClickedDropdownUser = (event) => {
-    // const mouse = event.target.id;
     if (!clickedDropdownUser) {
       ///daca nu e inchis
       setClickedDropdownUser(!clickedDropdown);
@@ -100,24 +98,22 @@ function NavbarSecond() {
             {/* START SHOP */}
             <li>
               <div className="dropdown" onClick={functionClickedDropdown}>
-                {/* <Link to="/" className="linkNavbar "> */}
                 <p className="nav-links " id="dropdownForOutside">
                   Shop <i className="bx bxs-chevron-down "></i>{" "}
                 </p>
-                {/* </Link> */}
 
                 <div className={styleDropdown}>
                   <Link to="/drinks" className="linkDropdown">
-                    Drinks
+                    Cafea
                   </Link>
                   <Link to="/food" className="linkDropdown">
-                    Food
+                    Gustări
                   </Link>
                   <Link to="/baristaCourses" className="linkDropdown">
-                    Barista Course
+                    Cursuri Barista
                   </Link>
                   <Link to="/equipment" className="linkDropdown">
-                    Home Equipments
+                    Echipamente pentru acasă
                   </Link>
                   <Link to="/giftCards" className="linkDropdown">
                     Gift Cards
@@ -131,7 +127,7 @@ function NavbarSecond() {
               <div className="dropdown" onClick={functionClickedDropdownUser}>
                 <p className="nav-links" id="dropdownForOutsideUser">
                   <i className="fas fa-user-alt"></i>
-                  {userInfo ? <> Hi, {userInfo.name}</> : ""}
+                  {userInfo ? <> Bună, {userInfo.name}</> : ""}
                   <i className="bx bxs-chevron-down "></i>
                 </p>
                 {userInfo ? (
@@ -139,13 +135,10 @@ function NavbarSecond() {
                     {" "}
                     <div className={styleDropdownUser}>
                       <Link to="/profile" className="linkDropdown">
-                     Reset your password
+                        Resetează parola
                       </Link>
-                      <Link
-                        to="/ordersuser"
-                        className="linkDropdown"
-                      >
-                     See your orders
+                      <Link to="/ordersuser" className="linkDropdown">
+                        Istoric comenzi
                       </Link>
                       <Link
                         to="/"
@@ -167,7 +160,7 @@ function NavbarSecond() {
                         className="linkDropdown"
                         onClick={logoutHandler}
                       >
-                        Register
+                        Inregistrează-te
                       </Link>
                     </div>
                   </>
@@ -175,62 +168,21 @@ function NavbarSecond() {
               </div>
             </li>
 
-         
-              <li
-                className="nav-item me-3 me-lg-1 "
-              >
-                 <p className="nav-links gotocart ">
-                <Link
-                  to="/cart"  
-                >
+            <li className="nav-item me-3 me-lg-1 ">
+              <p className="nav-links gotocart ">
+                <Link to="/cart">
                   <span>
                     <i
                       className="fas fa-shopping-bag fa-lg"
-                      style={{ color: "white"}}
+                      style={{ color: "white" }}
                     ></i>
                   </span>
                   <span className="badge rounded-pill badge-notification bg-danger">
-                   {productsLengths}
+                    {productsLengths}
                   </span>
-                </Link></p>
-              </li>
-            {/* NEATINS
-            <li className="user">
-              <Link to="Sing up" className="linkNavbar">
-                <p className="nav-links">
-                  <i className="fas fa-user-alt"></i>
-                </p>
-              </Link>
-            </li> */}
-
-            {/* {userInfo ? (
-              <li className="user">
-                <div className="dropdown" onClick={functionClickedDropdown}>
-                  <Link style={{ color: "white" }} to="/profile">
-                    Profile
-                  </Link>
-                  <Link
-                    style={{ color: "white" }}
-                    to="/"
-                    onClick={logoutHandler}
-                  >
-                    Logout
-                  </Link>
-                </div>
-              </li>
-            ) : (
-              <>
-                <p>
-                  <Link style={{ color: "white" }} to="/login">
-                    Login
-                  </Link>
-                </p>
-                <Link style={{ color: "white" }} to="/register">
-                  Register
                 </Link>
-              </>
-            )}
-          */}
+              </p>
+            </li>
           </ul>
         </nav>
       </div>

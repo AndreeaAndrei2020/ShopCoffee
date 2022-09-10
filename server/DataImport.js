@@ -39,10 +39,8 @@ ImportData.post(
   "/drinks",
   asyncHandler(async (req, res) => {
     await schemaDrinks.remove({});
-    const importCoffeeDrinks = await schemaDrinks.insertMany(coffeeDrinks);
-    const importCoktailsDrinks = await schemaDrinks.insertMany(cocktailsDrinks);  ///to MongoDB
-
-    res.send({ importCoffeeDrinks , importCoktailsDrinks});  ///aici trimit la client
+    const importCoffeeDrinks = await schemaDrinks.insertMany(coffeeDrinks); ///to MongoDB
+    res.send({ importCoffeeDrinks });  //to client
   })
 );
 
@@ -50,7 +48,7 @@ ImportData.post(
   "/user",
   asyncHandler(async (req, res) => {
     await User.remove({});
-    const importUser = await User.insertMany(users);
+    const importUser = await User.insertMany(users); 
     res.send({ importUser}); 
   })
 );

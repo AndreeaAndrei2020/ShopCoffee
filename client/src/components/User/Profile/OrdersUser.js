@@ -1,49 +1,49 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import moment from "moment";
+
 import { listMyOrders } from "../../../Redux/Actions/OrderActions";
-import { getUserDetails } from "../../../Redux/Actions/userActions";
 import Message from "../../LoadingError/Error";
 import Loading from "../../LoadingError/Loading";
 import NavbarSecond from "../../Navbar/NavbarSecond";
-import moment from "moment";
+
 function OrdersUser() {
   const orderListMy = useSelector((state) => state.orderListMy);
   const { loading, error, orders } = orderListMy;
-
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(listMyOrders());
-    // dispatch(getUserDetails("profile"));
   }, [dispatch]);
 
   return (
     <div >
       <NavbarSecond />
-      <section className="h-100 gradient-custom">
+      <section className="h-100 gradient-custom" style={{height:'100vh'}} > 
         {loading ? (
           <Loading />
         ) : error ? (
           <Message variant="alert-danger">{error}</Message>
         ) : (
           <>
+          <div className=" px-4 py-5 " >
+                      <h4 className=" mb-0" style={{ color: "white" }}>
+                        
+                          {" "}
+                         Istoric comenzi <span></span>
+                        
+                      </h4>
+                    </div>
             {orders.length > 0 ? (
               orders.map((item, index) => {
                 return (
-                  <>
-                    <div className=" px-4 py-5">
-                      <h4 className=" mb-0" style={{ color: "white" }}>
-                        <i>
-                          {" "}
-                          Here is your orders <span></span>
-                        </i>
-                      </h4>
-                    </div>
+                  <div key={index}>
                     <h4 style={{ color: "rgb(168, 126, 70)" }}>
-                      Order nr: {index + 1} , date:{" "}
+                      Comanda nr: {index + 1}, data :{" "}
                       {moment(item.createdAt).format("LL")}{" "}
                     </h4>
-                    <table class="table" style={{ border: "1px solid white" }}>
+                    <div style={{overflowX:'auto' }}>
+                    <table className="table" style={{ border: "1px solid white"}}>
                       <thead>
                         <tr>
                           <th
@@ -56,13 +56,13 @@ function OrdersUser() {
                             scope="col"
                             style={{ color: "rgb(168, 126, 70)" }}
                           >
-                            PRODUCT
+                          PRODUS
                           </th>
                           <th
                             scope="col"
                             style={{ color: "rgb(168, 126, 70)" }}
                           >
-                            QTY
+                        CANTITATE
                           </th>
                           <th
                             scope="col"
@@ -75,7 +75,7 @@ function OrdersUser() {
                       <tbody>
                         {item.orderItems.map((product, indexProduct) => {
                           return (
-                            <tr>
+                            <tr key={index}>
                               <th scope="row" style={{ color: "white" }}>
                                 {indexProduct + 1}
                               </th>
@@ -92,20 +92,21 @@ function OrdersUser() {
                         <tr
                           style={{ color: "white", backgroundColor: "black" }}
                         >
-                          <h6 style={{ padding: "10px" }}>
+                          <p style={{ padding: "10px" }}>
                             {" "}
-                            TOTAL ORDER : {item.totalPrice} euro
-                          </h6>
+                            TOTAL COMANDĂ : {item.totalPrice} euro
+                          </p>
                         </tr>
                       </tbody>
                     </table>
-                  </>
+                    </div>
+                  </div>
                 );
               })
             ) : (
               <div className=" px-4 py-5">
                 <h4 className=" mb-0" style={{ color: "white" }}>
-                  <i>Oops, you haven't placed an order yet</i>
+                  <i>Oops, nu aveți nicio comandă înregistrată.</i>
                 </h4>
               </div>
             )}
@@ -114,6 +115,9 @@ function OrdersUser() {
 
         
       </section>
+
+
+      
     </div>
   );
 }

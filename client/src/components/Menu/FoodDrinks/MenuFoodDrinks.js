@@ -16,13 +16,13 @@ function Menu() {
         <div className="columnHomeMenuItems divMenu" >
           <Link to="/food">
             <img className="imageHome" src={food} alt="imageHome" />
-            <div className="centeredTitle">Food</div>
+            <div className="centeredTitle">Gustări</div>
           </Link>
         </div>
         <div className="columnHomeMenuItems divMenu">
           <Link to="/drinks">
             <img className="imageHome" src={drinks} alt="imageHome" />
-            <div className="centeredTitle"> Drinks</div>
+            <div className="centeredTitle"> Cafea</div>
           </Link>
         </div>
       </div>
